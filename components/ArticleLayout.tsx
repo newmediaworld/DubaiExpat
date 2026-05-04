@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/Header";
 import SchemaJsonLd from "@/components/SchemaJsonLd";
 
@@ -61,10 +62,13 @@ export default function ArticleLayout({ frontmatter, children }: ArticleLayoutPr
         {/* Hero */}
         <section className="relative overflow-hidden rounded-2xl mx-4 md:mx-8 mt-6 md:mt-8 mb-12">
           {hero_image && (
-            <img
+            <Image
               src={hero_image}
               alt=""
-              className="absolute inset-0 h-full w-full object-cover"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1200px"
+              className="object-cover"
             />
           )}
           <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/90 via-[#0A1628]/70 to-[#0A1628]/40" />
