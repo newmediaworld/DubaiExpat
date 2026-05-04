@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
@@ -8,11 +8,7 @@ import CookieConsent from "@/components/CookieConsent";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -72,9 +68,9 @@ export default function RootLayout({
         <meta name="impact-site-verification" content="adde694d-006b-4488-8e06-6d77e86a02dc" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-Q93X7TD1X2"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="ga4-init" strategy="afterInteractive">
+        <Script id="ga4-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -84,7 +80,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} antialiased`}
       >
         <Sidebar />
         {/* pt-14 offsets the fixed mobile top bar; md:pl-64 offsets the desktop sidebar */}
