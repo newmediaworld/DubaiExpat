@@ -30,10 +30,10 @@ const STUDIES: Study[] = [
   {
     slug: "james-and-emma",
     name: "James & Emma",
-    tagline: "Newlyweds Moving to Dubai",
+    tagline: "Surrey Family Sponsored to Dubai",
     blurb:
-      "How a London couple made Dubai their first married home — visa choices, finding housing, and lessons for UK expats relocating as a couple.",
-    badge: "Couple",
+      "How a Surrey family of four moved to Dubai when James was headhunted for finance — employer-sponsored visa, schools, and lessons for UK families with kids.",
+    badge: "Family",
     image: "/james-and-emma.jpg",
   },
   {

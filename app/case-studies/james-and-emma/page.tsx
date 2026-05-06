@@ -4,8 +4,8 @@ import type { Metadata } from "next";
 import SchemaJsonLd from "@/components/SchemaJsonLd";
 import { pageMetadata } from "@/lib/metadata";
 
-const TITLE = "James & Emma's Story: Newlyweds Moving to Dubai";
-const DESCRIPTION = "How a London couple made Dubai their first married home — visa choices, finding housing, and lessons for UK expats relocating as a couple.";
+const TITLE = "James & Emma's Story: Surrey Family's Dubai Move";
+const DESCRIPTION = "How a Surrey family of four moved to Dubai when James was headhunted for finance — employer-sponsored visa, schools, and lessons for UK families with kids.";
 const URL_PATH = "/case-studies/james-and-emma";
 const ABSOLUTE_URL = `https://www.dubaiexpat.co.uk${URL_PATH}`;
 
