@@ -78,6 +78,42 @@ export default function RootLayout({
             gtag('config', 'G-Q93X7TD1X2');
           `}
         </Script>
+        <Script id="affiliate-click-tracking" strategy="lazyOnload">
+          {`
+            (function(){
+              function detectAffiliateProgramme(href){
+                if(!href||typeof href!=='string')return null;
+                try{
+                  var u=new URL(href);
+                  var p=u.searchParams;
+                  var host=u.hostname.replace(/^www\\./,'');
+                  if(host==='go.nordvpn.net')return{programme:'nordvpn',clickref:p.get('aff_sub')};
+                  if(host==='safetywing.com'&&p.has('referenceID'))return{programme:'safetywing',clickref:p.get('utm_campaign')};
+                  if(host==='deal.incogni.io')return{programme:'incogni',clickref:p.get('aff_sub')};
+                  if(host==='clk.omgt6.com')return{programme:'optimise',clickref:p.get('MID')};
+                  if(host==='awin1.com')return{programme:'awin',clickref:p.get('clickref')};
+                  return null;
+                }catch(e){return null;}
+              }
+              document.addEventListener('click',function(e){
+                var anchor=e.target&&e.target.closest?e.target.closest('a[href]'):null;
+                if(!anchor)return;
+                var detected=detectAffiliateProgramme(anchor.href);
+                if(!detected)return;
+                if(typeof window.gtag==='function'){
+                  window.gtag('event','affiliate_click',{
+                    event_category:'affiliate',
+                    event_label:detected.programme,
+                    programme:detected.programme,
+                    clickref:detected.clickref,
+                    destination_host:(function(){try{return new URL(anchor.href).hostname;}catch(e){return null;}})(),
+                    page_path:window.location.pathname
+                  });
+                }
+              });
+            })();
+          `}
+        </Script>
       </head>
       <body
         className={`${geistSans.variable} antialiased`}

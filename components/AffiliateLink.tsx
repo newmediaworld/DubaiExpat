@@ -5,6 +5,12 @@ interface AffiliateLinkProps {
   className?: string;
 }
 
+/**
+ * Simple anchor wrapper for affiliate links — forces target="_blank" and
+ * rel="sponsored noopener noreferrer". GA4 affiliate_click event is fired
+ * by the global click delegator in app/layout.tsx, so this component does
+ * NOT attach its own onClick handler (avoids double-firing).
+ */
 export default function AffiliateLink({ href, label, children, className }: AffiliateLinkProps) {
   return (
     <a
