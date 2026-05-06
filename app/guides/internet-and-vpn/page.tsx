@@ -477,6 +477,18 @@ export default function InternetAndVpnGuide() {
                 </p>
               </Link>
               <Link
+                href="/articles/dubai-home-internet-streaming-uk-expats"
+                className="p-6 rounded-lg hover:bg-gray-50 transition"
+                style={{ backgroundColor: "rgba(201, 168, 76, 0.05)", borderLeft: "4px solid #C9A84C" }}
+              >
+                <h4 className="font-bold mb-2" style={{ color: "#0A1628" }}>
+                  Dubai Home Internet &amp; Streaming
+                </h4>
+                <p className="text-gray-500 text-sm">
+                  Etisalat vs du compared, package pricing, and how UK expats actually watch BBC, ITV and Sky from a Dubai address.
+                </p>
+              </Link>
+              <Link
                 href="/guides/banking"
                 className="p-6 rounded-lg hover:bg-gray-50 transition"
                 style={{ backgroundColor: "rgba(201, 168, 76, 0.05)", borderLeft: "4px solid #C9A84C" }}

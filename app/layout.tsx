@@ -22,7 +22,12 @@ export const metadata: Metadata = {
   description:
     "Dubai Expat is a relocation guide for UK expats moving to Dubai and the UAE — covering visas, housing, schools, removals, banking, and community life.",
   alternates: {
-    canonical: "/",
+    // Absolute URL with trailing slash. When this is "/" Next.js renders the
+    // canonical as "https://www.dubaiexpat.co.uk" (no slash) but the served
+    // root URL is "https://www.dubaiexpat.co.uk/" (with slash). That mismatch
+    // caused GSC to flag /​ as "Duplicate, Google chose different canonical
+    // than user" (2026-05-06 internal-link audit follow-up).
+    canonical: "https://www.dubaiexpat.co.uk/",
   },
   openGraph: {
     type: "website",
@@ -31,7 +36,7 @@ export const metadata: Metadata = {
     title: "Dubai Expat | Your Complete Guide to Moving to Dubai",
     description:
       "Relocation guide for UK expats moving to Dubai and the UAE — visas, housing, schools, removals, banking, and community life.",
-    url: "/",
+    url: "https://www.dubaiexpat.co.uk/",
     images: [
       {
         url: "/og-default.png",
