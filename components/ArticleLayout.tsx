@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/Header";
 import SchemaJsonLd from "@/components/SchemaJsonLd";
+import RelatedGuides from "@/components/RelatedGuides";
+import { getRelatedArticles } from "@/lib/related-articles";
 
 interface ArticleFrontmatter {
   title: string;
@@ -98,6 +100,13 @@ export default function ArticleLayout({ frontmatter, children }: ArticleLayoutPr
             {children}
           </div>
         </div>
+
+        {/* Auto-injected related-articles cluster — boosts internal-link density.
+            Reads same-category siblings + cluster anchors via lib/related-articles. */}
+        {slug && (() => {
+          const related = getRelatedArticles(slug, 5);
+          return related.length > 0 ? <RelatedGuides items={related} /> : null;
+        })()}
 
         {/* Disclaimer footer */}
         <section className="px-4 py-8 md:px-8 bg-gray-50 border-t border-gray-200">
