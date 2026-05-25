@@ -11,6 +11,9 @@ export default function Home() {
         title="Dubai Expat | Your Complete Guide to Moving to Dubai"
         description="Relocation guide for UK expats moving to Dubai and the UAE — visas, housing, schools, removals, banking, and community life."
         url="https://www.dubaiexpat.co.uk/"
+        breadcrumbs={[
+          { name: "Home", url: "https://www.dubaiexpat.co.uk/" },
+        ]}
       />
       <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-4 pb-10 pt-6 sm:px-6 lg:px-8 lg:pt-8">
         <header className="mb-8">
