@@ -14,12 +14,24 @@
  */
 
 import type { MetadataRoute } from "next";
-import { readdirSync, statSync } from "fs";
+import { readdirSync, readFileSync, statSync } from "fs";
 import { join } from "path";
+
+// Revalidate the sitemap response every hour. Without an explicit revalidate
+// Next.js may treat the route as fully dynamic (no cache) or fully static
+// (never regenerated until next deploy). Hourly is a balanced default.
+export const revalidate = 3600;
 
 const BASE = "https://www.dubaiexpat.co.uk";
 const APP_DIR = join(process.cwd(), "app");
 const ARTICLES_DIR = join(process.cwd(), "content", "articles");
+
+// Per-route real lastmod tracking. Without this every URL got `new Date()` on
+// every build, which gave Google identical timestamps for all 50 URLs and
+// (combined with the missing Last-Modified HTTP header) tanked the sitemap
+// re-fetch cadence — Googlebot last read DX sitemap on 10 May, 37 days stale
+// as of 21 Jun 2026 (confirmed in GSC). EAA's sitemap reads weekly because
+// it exposes per-URL mtimes via the prerender pipeline.
 
 // Pages that must NOT appear in the sitemap (private, redirect-only, etc.)
 const EXCLUDE_PATHS = new Set<string>([
@@ -59,12 +71,16 @@ function defaultChangefreq(
 }
 
 /**
- * Recursively walks the app/ directory and returns every route that has a page.tsx.
+ * Recursively walks the app/ directory and returns every route that has a page.tsx,
+ * along with the page.tsx file's mtime as the publish date.
  * Skips dynamic [slug] routes (handled separately via the MDX article walker).
  * Skips api/, layout/error/loading files.
  */
-function walkAppDir(dir: string, currentPath = ""): string[] {
-  const routes: string[] = [];
+function walkAppDir(
+  dir: string,
+  currentPath = ""
+): Array<{ path: string; lastmod: Date }> {
+  const routes: Array<{ path: string; lastmod: Date }> = [];
   let entries: string[];
   try {
     entries = readdirSync(dir);
@@ -74,7 +90,13 @@ function walkAppDir(dir: string, currentPath = ""): string[] {
 
   // If this directory has a page.tsx and isn't a dynamic segment, emit the route
   if (entries.includes("page.tsx") && !currentPath.includes("[")) {
-    routes.push(currentPath || "/");
+    let lastmod: Date;
+    try {
+      lastmod = statSync(join(dir, "page.tsx")).mtime;
+    } catch {
+      lastmod = new Date();
+    }
+    routes.push({ path: currentPath || "/", lastmod });
   }
 
   for (const entry of entries) {
@@ -99,38 +121,60 @@ function walkAppDir(dir: string, currentPath = ""): string[] {
 }
 
 /**
- * Returns one route per .mdx file in content/articles/.
- * These render via the dynamic /articles/[slug] route.
+ * Returns one entry per .mdx file in content/articles/, using the frontmatter
+ * `date:` field if present (most accurate publish/update signal), falling back
+ * to the file's mtime.
  */
-function walkArticles(): string[] {
+function walkArticles(): Array<{ path: string; lastmod: Date }> {
   try {
-    return readdirSync(ARTICLES_DIR)
-      .filter((f) => f.endsWith(".mdx"))
-      .map((f) => `/articles/${f.replace(/\.mdx$/, "")}`);
+    const files = readdirSync(ARTICLES_DIR).filter((f) => f.endsWith(".mdx"));
+    return files.map((f) => {
+      const fullPath = join(ARTICLES_DIR, f);
+      let lastmod: Date;
+      try {
+        const content = readFileSync(fullPath, "utf-8");
+        const m = content.match(/^date:\s*["']?(\d{4}-\d{2}-\d{2})["']?/m);
+        if (m) {
+          lastmod = new Date(`${m[1]}T00:00:00Z`);
+        } else {
+          lastmod = statSync(fullPath).mtime;
+        }
+      } catch {
+        lastmod = new Date();
+      }
+      return { path: `/articles/${f.replace(/\.mdx$/, "")}`, lastmod };
+    });
   } catch {
     return [];
   }
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const today = new Date();
+  // Build a single map: path → most-recent lastmod (in case two walkers
+  // emit the same path, take the newer one).
+  const byPath = new Map<string, Date>();
 
-  const allPaths = new Set<string>([
-    ...walkAppDir(APP_DIR),
-    ...walkArticles(),
-  ]);
+  for (const r of walkAppDir(APP_DIR)) {
+    byPath.set(r.path, r.lastmod);
+  }
+  for (const r of walkArticles()) {
+    const existing = byPath.get(r.path);
+    if (!existing || r.lastmod > existing) {
+      byPath.set(r.path, r.lastmod);
+    }
+  }
 
   // Remove excluded paths
   for (const excluded of EXCLUDE_PATHS) {
-    allPaths.delete(excluded);
+    byPath.delete(excluded);
   }
 
-  // Convert to sitemap entries
-  return Array.from(allPaths)
-    .sort()
-    .map((path) => ({
+  // Convert to sitemap entries, sorted by path for stable diffs.
+  return Array.from(byPath.entries())
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([path, lastmod]) => ({
       url: `${BASE}${path === "/" ? "" : path}`,
-      lastModified: today,
+      lastModified: lastmod,
       changeFrequency: CHANGEFREQ_OVERRIDES[path] ?? defaultChangefreq(path),
       priority: PRIORITY_OVERRIDES[path] ?? defaultPriority(path),
     }));
