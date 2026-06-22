@@ -271,19 +271,58 @@ export async function POST(request: Request) {
             emailRes.status,
             errText
           );
+          // Surface as 502 so monitoring catches it. Contact already
+          // upserted above, so include contactCreated:true to keep the
+          // form UX clean. Pattern: SHARED/lessons.md 2026-06-21.
+          return NextResponse.json(
+            {
+              error: "Subscribed but magnet delivery failed — we will retry.",
+              detail: `BREVO_SEND_FAILED:${emailRes.status}:${errText.slice(0, 200)}`,
+              contactCreated: true,
+            },
+            { status: 502 }
+          );
         }
       } catch (emailErr) {
         console.error("Brevo magnet email exception:", emailErr);
+        const msg = emailErr instanceof Error ? emailErr.message : String(emailErr);
+        return NextResponse.json(
+          {
+            error: "Subscribed but magnet delivery failed — we will retry.",
+            detail: `BREVO_SEND_EXCEPTION:${msg.slice(0, 200)}`,
+            contactCreated: true,
+          },
+          { status: 502 }
+        );
       }
     } else {
+      // Unknown magnet slug — caller bug. Return 400 with structured
+      // detail so the form-builder sees it; previously this was a silent
+      // warn + ok:true that took a Brevo dashboard inspection to detect.
       console.warn(
         `No magnet config found for slug: ${magnetKey}. Email not sent.`
+      );
+      return NextResponse.json(
+        {
+          error: "Unknown magnet slug",
+          detail: `UNKNOWN_MAGNET_SLUG:${magnetKey}`,
+          contactCreated: true,
+        },
+        { status: 400 }
       );
     }
 
     return NextResponse.json({ ok: true });
   } catch (error) {
+    // Bug-class catch: bubble to 500 instead of returning ok:true.
+    // The previous ok:true was actively deceptive — programmer errors
+    // and network failures looked successful to the caller. See
+    // SHARED/lessons.md 2026-06-21.
     console.error("Subscribe error:", error);
-    return NextResponse.json({ ok: true });
+    const msg = error instanceof Error ? error.message : String(error);
+    return NextResponse.json(
+      { error: "Something went wrong. Please try again.", detail: msg.slice(0, 200) },
+      { status: 500 }
+    );
   }
 }
