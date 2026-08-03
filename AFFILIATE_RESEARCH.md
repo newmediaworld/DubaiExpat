@@ -17,7 +17,7 @@ Twelve live placements across four programmes.
 | Programme | Network | Commission | Live placements | URL pattern |
 |-----------|---------|------------|-----------------|-------------|
 | Incogni | Direct (deal.incogni.io) | Revenue share | 3 | `https://deal.incogni.io/aff_c?offer_id=2&aff_id=2544&source=dx&aff_sub={article}` |
-| NordVPN | Direct (go.nordvpn.net) | 40% first purchase / 30% renewal | 3 | `https://go.nordvpn.net/aff_c?offer_id=15&aff_id=145336&source=dx&aff_sub={article}` |
+| NordVPN | Direct (go.nordvpn.net) | 40% first purchase / 30% renewal | 4 | `https://go.nordvpn.net/aff_c?offer_id=15&aff_id=145336&source=dx&aff_sub={article}` |
 | Amazon UK Associates | Direct | ~1–3% depending on category | 2 | `https://www.amazon.co.uk/?tag=newmediawor06-21&ascsubtag={article}` |
 | GetYourGuide | Awin (advertiser 77814) | 8% experiences booking | 4 | `https://www.awin1.com/cread.php?awinmid=77814&awinaffid=2849051&ued={target}&clickref={article}` |
 
@@ -27,9 +27,10 @@ Twelve live placements across four programmes.
 - **/blog/dubai-internet-streaming** — Incogni (data-removal), NordVPN (streaming-VPN)
 - **/blog/emirates-id-data-hygiene** — Incogni (data-removal)
 - **/blog/moving-money-uk-to-dubai** — NordVPN (Wise-Revolut section)
+- **/blog/cheap-flights-dubai-to-uk** — NordVPN (booking-VPN / price-comparison section)
 - **/blog/cost-of-raising-children** — Amazon UK (kids' supplies), GetYourGuide (family days out)
 - **/blog/summer-survival** — Amazon UK (summer kit), GetYourGuide (indoor venues)
-- **/blog/abu-dhabi-experiences** — GetYourGuide (experiences)
+- **/blog/dubai-vs-abu-dhabi-british-families** — GetYourGuide (experiences)
 - **/blog/hidden-costs** — GetYourGuide (holiday budget line)
 
 ## Portfolio account state relevant to DX

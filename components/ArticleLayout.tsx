@@ -66,7 +66,7 @@ export default function ArticleLayout({ frontmatter, children }: ArticleLayoutPr
           {hero_image && (
             <Image
               src={hero_image}
-              alt=""
+              alt={title}
               fill
               priority
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1200px"
