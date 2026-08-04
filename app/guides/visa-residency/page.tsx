@@ -4,8 +4,8 @@ import Header from "@/components/Header";
 import SchemaJsonLd from "@/components/SchemaJsonLd";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = pageMetadata({
-  title: "Dubai Visa Guide for UK Expats 2026: Golden vs Green vs Employment",
-  description: "Which Dubai visa should UK expats pick in 2026 — Golden (10yr), Green (5yr), Employment, Freelance or Retirement. AED costs, eligibility, timelines compared.",
+  title: "Dubai Visa for UK Expats 2026: Golden vs Green vs Work Visa",
+  description: "Which Dubai visa should a UK expat apply for in 2026? Golden (10 years), Green (5 years), employment, freelance and retirement compared on cost and salary.",
   path: "/guides/visa-residency",
 });
 const SCHEMA_URL = "https://www.dubaiexpat.co.uk/guides/visa-residency";
@@ -24,8 +24,8 @@ export default function VisaResidencyGuide() {
     <>
       <SchemaJsonLd
         type="Article"
-        title="Dubai Visa Guide for UK Expats 2026: Golden vs Green vs Employment"
-        description="Which Dubai visa should UK expats pick in 2026 — Golden (10yr), Green (5yr), Employment, Freelance or Retirement. AED costs, eligibility, timelines compared."
+        title="Dubai Visa for UK Expats 2026: Golden vs Green vs Work Visa"
+        description="Which Dubai visa should a UK expat apply for in 2026? Golden (10 years), Green (5 years), employment, freelance and retirement compared on cost and salary."
         url={SCHEMA_URL}
         breadcrumbs={BREADCRUMBS}
       />

@@ -5,8 +5,8 @@ import SchemaJsonLd from '@/components/SchemaJsonLd';
 import RelatedGuides from '@/components/RelatedGuides';
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata({
-  title: "Buying Furniture in Dubai (2026): IKEA, Designer Stores & Bespoke Guide for UK Expats",
-  description: "How UK expats furnish their Dubai home in 2026 — IKEA, Home Centre, West Elm, designer showrooms, bespoke carpenters in Al Quoz, and the best second-hand marketplaces.",
+  title: "Buying Furniture in Dubai: IKEA, Dubizzle & Al Quoz Bespoke",
+  description: "Where UK expats furnish a Dubai apartment: IKEA and Home Box for the basics, Al Quoz carpenters for bespoke, and Dubizzle for departing-expat bargains.",
   path: "/guides/furniture",
 });
 const SCHEMA_URL = 'https://www.dubaiexpat.co.uk/guides/furniture';
@@ -28,8 +28,8 @@ export default function FurnitureGuide() {
     <>
       <SchemaJsonLd
         type="Article"
-        title="Buying Furniture in Dubai (2026): IKEA, Designer Stores & Bespoke Guide for UK Expats"
-        description="How UK expats furnish their Dubai home — IKEA, Home Centre, designer showrooms, bespoke carpenters, second-hand marketplaces."
+        title="Buying Furniture in Dubai: IKEA, Dubizzle & Al Quoz Bespoke"
+        description="Where UK expats furnish a Dubai apartment: IKEA and Home Box for the basics, Al Quoz carpenters for bespoke, and Dubizzle for departing-expat bargains."
         url={SCHEMA_URL}
         breadcrumbs={BREADCRUMBS}
       />

@@ -5,8 +5,8 @@ import SchemaJsonLd from "@/components/SchemaJsonLd";
 import RelatedGuides from "@/components/RelatedGuides";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = pageMetadata({
-  title: "Pet Relocation UK to Dubai (2026): Costs, Timeline, Rabies Test & Vets",
-  description: "How to move your dog or cat UK to Dubai 2026: UAE import permit, rabies titre test, approved vets, costs (£2-4k), 4-month timeline, specialists.",
+  title: "Cost to Fly a Dog to Dubai from the UK 2026: £800-£2,500",
+  description: "What it costs to fly a dog or cat from the UK to Dubai in 2026: £800-£2,500 all-in, the MOCCAE import permit, rabies titre test and 4-month timeline.",
   path: "/guides/pets",
 });
 const SCHEMA_URL = "https://www.dubaiexpat.co.uk/guides/pets";
@@ -59,8 +59,8 @@ export default function PetsGuidePage() {
     <div className="min-h-screen bg-zinc-50 text-slate-900">
       <SchemaJsonLd
         type="Article"
-        title="Pet Relocation UK to Dubai (2026): Costs, Timeline, Rabies Test & Vets"
-        description="How to move your dog or cat from the UK to Dubai in 2026: UAE import permit, rabies titre test, approved vets, total costs, 4-month timeline."
+        title="Cost to Fly a Dog to Dubai from the UK 2026: £800-£2,500"
+        description="What it costs to fly a dog or cat from the UK to Dubai in 2026: £800-£2,500 all-in, the MOCCAE import permit, rabies titre test and 4-month timeline."
         url={SCHEMA_URL}
         breadcrumbs={BREADCRUMBS}
       />
