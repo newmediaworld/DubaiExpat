@@ -622,17 +622,11 @@ export default function VisaResidencyGuide() {
               into one category. We recommend speaking to a specialist before you apply — a
               small upfront fee for advice can save weeks of delays and rejected applications.
             </p>
-            <a
-              href="https://your-visa-specialist-affiliate-link.com"
-              target="_blank"
-              rel="noopener noreferrer sponsored"
-              className="inline-flex items-center gap-3 rounded-xl px-6 py-4 font-semibold transition-opacity hover:opacity-90"
-              style={{ backgroundColor: "#C9A84C", color: "#0A1628" }}
-            >
-              <span>Speak to a recommended visa specialist →</span>
-            </a>
-            <p className="mt-3 text-xs" style={{ color: "#64748b" }}>
-              Free initial consultation. Affiliate link — we may earn a referral fee at no cost to you.
+            <p className="text-gray-600 leading-relaxed">
+              Look for a licensed UAE PRO (public relations officer) service or an immigration
+              consultancy registered with the relevant free zone or the GDRFA. Most offer a short
+              paid consultation, and many employers&apos; own PRO teams will handle the process for
+              you if you ask.
             </p>
           </div>
         </section>

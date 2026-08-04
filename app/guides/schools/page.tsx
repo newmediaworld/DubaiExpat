@@ -18,8 +18,8 @@ const RELATED = [
 ];
 
 export const metadata = pageMetadata({
-  title: "Best British Schools in Dubai for UK Expat Families (2026): Fees, KHDA Ratings & How to Apply",
-  description: "Best British curriculum schools in Dubai for UK expat families — 2026 fees, KHDA ratings, GEMS vs Repton vs Dubai College, how to apply, waiting lists and term dates.",
+  title: "Schools in Dubai 2026: Fees, KHDA Ratings & How to Apply",
+  description: "How UK expat families pick a Dubai school in 2026 — British curriculum fees, KHDA ratings, application timelines, waiting lists and term dates.",
   path: "/guides/schools",
 });
 export default function SchoolsPage() {
@@ -27,8 +27,8 @@ export default function SchoolsPage() {
     <div className="min-h-screen bg-white">
       <SchemaJsonLd
         type="Article"
-        title="Best British Schools in Dubai for UK Expat Families (2026): Fees, KHDA Ratings & How to Apply"
-        description="Best British curriculum schools in Dubai for UK expat families — 2026 fees, KHDA ratings, GEMS, Repton, Dubai College compared."
+        title="Schools in Dubai 2026: Fees, KHDA Ratings & How to Apply"
+        description="How UK expat families pick a Dubai school in 2026 — British curriculum fees, KHDA ratings, application timelines, waiting lists and term dates."
         url={SCHEMA_URL}
         breadcrumbs={BREADCRUMBS}
       />

@@ -338,7 +338,7 @@ export default function PetsGuidePage() {
                 Getting the paperwork right is critical — one error can delay or prevent your pet entering the UAE. These specialist companies manage the entire process for you, from titre test coordination to airport collection in Dubai.
               </p>
               <p className="mt-3 text-xs text-slate-400">
-                Disclosure: some links below may be affiliate links. We only recommend companies we consider genuinely reputable. Our editorial content is never influenced by commercial relationships.
+                Disclosure: these are plain editorial links. We have no commercial relationship with any of the companies below and earn nothing if you use them — they are listed because we consider them genuinely reputable.
               </p>
             </div>
 
@@ -348,7 +348,7 @@ export default function PetsGuidePage() {
                   key={partner.name}
                   href={partner.url}
                   target="_blank"
-                  rel="noopener noreferrer sponsored"
+                  rel="noopener noreferrer"
                   className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-[#C9A84C]/80 hover:shadow-md"
                 >
                   <div className="space-y-3">

@@ -106,16 +106,8 @@ export default function TaxAndHmrcGuide() {
         {/* Upfront advisory notice */}
         <p style={{ fontSize: '0.9rem', lineHeight: '1.75', color: '#94a3b8', marginBottom: '2.5rem' }}>
           Tax rules change — always take professional advice before making decisions about your UK
-          residency or HMRC affairs. We work with trusted UK expat tax specialists;{' '}
-          <a
-            href="https://your-affiliate-link.com"
-            target="_blank"
-            rel="noopener noreferrer sponsored"
-            style={{ color: '#0A1628', textDecoration: 'underline' }}
-          >
-            book a free initial consultation here
-          </a>
-          .
+          residency or HMRC affairs. A qualified UK expat tax adviser is worth the fee if your
+          situation is at all complicated.
         </p>
 
         {/* Table of Contents */}

@@ -18,8 +18,8 @@ const RELATED = [
 ];
 
 export const metadata = pageMetadata({
-  title: "UK to Dubai Removals & Shipping (2026): Costs, Sea vs Air Freight, Customs",
-  description: "How UK expats ship belongings to Dubai in 2026 — sea freight vs air freight costs (£3-8k typical), UAE customs rules, prohibited items, and what to buy locally instead.",
+  title: "Dubai Removals & Shipping 2026: UK Expat Cost Guide",
+  description: "What it costs to ship belongings from the UK to Dubai in 2026 — sea vs air freight prices, UAE customs rules, prohibited items and what to buy locally.",
   path: "/guides/removals",
 });
 export default function RemovalsPage() {
@@ -27,8 +27,8 @@ export default function RemovalsPage() {
     <div className="min-h-screen bg-white">
       <SchemaJsonLd
         type="Article"
-        title="UK to Dubai Removals & Shipping (2026): Costs, Sea vs Air Freight, Customs"
-        description="How UK expats ship belongings to Dubai in 2026 — sea vs air freight costs, UAE customs rules, what to buy locally instead."
+        title="Dubai Removals & Shipping 2026: UK Expat Cost Guide"
+        description="What it costs to ship belongings from the UK to Dubai in 2026 — sea vs air freight prices, UAE customs rules, prohibited items and what to buy locally."
         url={SCHEMA_URL}
         breadcrumbs={BREADCRUMBS}
       />
