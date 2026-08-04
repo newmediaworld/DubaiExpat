@@ -137,6 +137,17 @@ export default function Sidebar() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              href="/articles"
+              onClick={() => setOpen(false)}
+              className={`block rounded-lg px-4 py-2.5 text-sm font-semibold transition ${
+                pathname === "/articles"
+                  ? "bg-white/10 text-white"
+                  : "text-[#C9A84C] hover:bg-white/5 hover:text-[#d5b760]"
+              }`}
+            >
+              All articles →
+            </Link>
           </div>
         </div>
       )}
@@ -218,6 +229,16 @@ export default function Sidebar() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              href="/articles"
+              className={`flex items-center rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
+                pathname === "/articles"
+                  ? "bg-white/10 text-white"
+                  : "text-[#C9A84C] hover:bg-white/5 hover:text-[#d5b760]"
+              }`}
+            >
+              All articles →
+            </Link>
           </div>
         </nav>
 

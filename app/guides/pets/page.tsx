@@ -280,6 +280,50 @@ export default function PetsGuidePage() {
             </p>
           </section>
 
+          {/* Sister-site cross-link — hot-climate pet health */}
+          <section className="rounded-2xl border-l-4 border-[#C9A84C] bg-slate-50 p-6">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#C9A84C]">
+              Beyond the import process
+            </p>
+            <h2 className="mt-2 text-xl font-bold text-[#0A1628]">
+              Keeping a temperate-climate pet healthy in the heat
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-slate-700">
+              This guide stops where the paperwork does. The harder part usually starts after arrival: a dog or cat that spent its life in the UK now has to cope with 45&deg;C summers, year-round parasites and a very different set of skin and respiratory pressures. That is not really a Dubai relocation question — it is a hot-climate pet health question.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-slate-700">
+              Our sister site <strong>The Tropical Pet</strong> covers exactly that ground for expat owners in Singapore, Bangkok, Kuala Lumpur and Hong Kong. The climates are not identical to the Gulf, but the physiology is — heat load, humidity, acclimatisation timelines and heat-stress warning signs read the same whether you are in Jumeirah or Sentosa.
+            </p>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <a
+                href="https://thetropicalpet.com/guides/heat-stress-pets"
+                target="_blank"
+                rel="noopener"
+                className="group rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-[#C9A84C]/60 hover:shadow-md"
+              >
+                <p className="font-semibold text-[#0A1628] group-hover:text-[#C9A84C] transition">
+                  Heat stress in dogs &amp; cats
+                </p>
+                <p className="mt-1 text-xs text-slate-500">
+                  Early warning signs, what counts as an emergency, and how long acclimatisation actually takes.
+                </p>
+              </a>
+              <a
+                href="https://thetropicalpet.com/guides/tropical-pet-health"
+                target="_blank"
+                rel="noopener"
+                className="group rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-[#C9A84C]/60 hover:shadow-md"
+              >
+                <p className="font-semibold text-[#0A1628] group-hover:text-[#C9A84C] transition">
+                  Pet health in a hot climate
+                </p>
+                <p className="mt-1 text-xs text-slate-500">
+                  What changes for a temperate-climate pet — parasites, skin, ears and the first-year adjustment.
+                </p>
+              </a>
+            </div>
+          </section>
+
           {/* ── AFFILIATE PARTNER SECTION ──────────────────────────────── */}
           <section className="space-y-6">
             <div className="rounded-2xl bg-[#0A1628] px-6 py-8 text-[#0A1628]">

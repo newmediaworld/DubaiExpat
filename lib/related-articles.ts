@@ -30,12 +30,15 @@ export interface RelatedArticle {
   href: string;
 }
 
-interface ArticleEntry {
+export interface ArticleEntry {
   slug: string;
   title: string;
   meta_title: string;
+  meta_description: string;
   category: string;
   date: string;
+  /** Estimated reading time in whole minutes, derived from the MDX body. */
+  readMinutes: number;
 }
 
 // Category-affinity map. When a category has thin same-category siblings, we
@@ -86,18 +89,37 @@ function loadAllArticles(): ArticleEntry[] {
   for (const file of files) {
     if (!file.endsWith(".mdx")) continue;
     const raw = readFileSync(join(ARTICLES_DIR, file), "utf-8");
-    const { data } = matter(raw);
+    const { data, content } = matter(raw);
     if (data.status === "draft") continue;
     out.push({
       slug: file.replace(/\.mdx$/, ""),
       title: (data.meta_title || data.title || file).toString(),
       meta_title: (data.meta_title || data.title || file).toString(),
-      category: (data.category || "").toString(),
+      meta_description: (data.meta_description || data.subtitle || "").toString(),
+      category: (data.category || "Uncategorised").toString(),
       date: (data.date || "").toString(),
+      readMinutes: estimateReadMinutes(content),
     });
   }
   cache = out;
   return out;
+}
+
+/** ~220 wpm, floored at 1 minute. Good enough for a card badge. */
+function estimateReadMinutes(body: string): number {
+  const words = body.trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 220));
+}
+
+/**
+ * Every published MDX article, newest-first. Used by the /articles hub.
+ * Shares the same parse + cache as getRelatedArticles() so frontmatter is
+ * only read from disk once per process.
+ */
+export function getAllArticles(): ArticleEntry[] {
+  return [...loadAllArticles()].sort((a, b) =>
+    (b.date || "").localeCompare(a.date || "")
+  );
 }
 
 function entriesByCategory(all: ArticleEntry[], category: string, excludeSlug: string): RelatedArticle[] {
