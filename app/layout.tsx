@@ -95,9 +95,22 @@ export default function RootLayout({
                   if(host==='go.nordvpn.net')return{programme:'nordvpn',clickref:p.get('aff_sub')};
                   if(host==='safetywing.com'&&p.has('referenceID'))return{programme:'safetywing',clickref:p.get('utm_campaign')};
                   if(host==='deal.incogni.io')return{programme:'incogni',clickref:p.get('aff_sub')};
-                  if(host==='clk.omgt6.com')return{programme:'optimise',clickref:p.get('UID')||p.get('MID')};
+                  if(host==='clk.omgt6.com'){
+                    // Optimise redirector — split by PID so GA4 shows which advertiser
+                    // was clicked, matching EAA's src/lib/affiliateTracking.js. UID is
+                    // the publisher sub-ID slot; MID is read only as a legacy fallback.
+                    var pid=p.get('PID');
+                    var uid=p.get('UID')||p.get('MID');
+                    var OPTIMISE_PIDS={'56417':'worldfirst_apac','12745':'optimise_trip_flights','12746':'optimise_trip_hotels','56631':'optimise_gocity','56653':'optimise_fly_fairly'};
+                    return{programme:OPTIMISE_PIDS[pid]||'optimise',clickref:uid||('PID='+pid)};
+                  }
                   if(host==='awin1.com')return{programme:'awin',clickref:p.get('clickref')};
-                  if(host==='apply.creatory.singsaver.com.sg')return{programme:'creatory_singsaver',clickref:'o='+p.get('o')};
+                  if(host==='apply.creatory.singsaver.com.sg')return{programme:'creatory_singsaver',clickref:p.get('s2')||('o='+p.get('o'))};
+                  // Amazon Associates. Gated on tag= deliberately: an untagged
+                  // amazon.* link earns nothing, so firing affiliate_click on it
+                  // would inflate the count. Same rule as safetywing/referenceID.
+                  if(/(^|\\.)amazon\\.(co\\.uk|com|sg|ae|de|com\\.au)$/.test(host)&&p.has('tag'))
+                    return{programme:'amazon_associates',clickref:p.get('ascsubtag')||p.get('tag')};
                   return null;
                 }catch(e){return null;}
               }
