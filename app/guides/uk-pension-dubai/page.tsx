@@ -192,7 +192,7 @@ export default function UkPensionDubaiGuide() {
           <div style={s.body}>
             <p style={s.p}>
               The UK State Pension is based on your National Insurance (NI) contribution record.
-              To receive the full new State Pension (£221.20 per week in 2024/25, rising annually
+              To receive the full new State Pension (£241.30 per week in 2026/27, rising annually
               with the triple lock), you need 35 qualifying years. To receive anything at all,
               you need at least 10 qualifying years. Years you spend working in Dubai do not
               automatically count toward your UK NI record.
@@ -205,23 +205,30 @@ export default function UkPensionDubaiGuide() {
               voluntary contributions to fill them.
             </p>
 
-            <h3 style={s.h3}>Voluntary NI contributions from Dubai</h3>
+            <h3 style={s.h3}>Voluntary NI contributions from Dubai — the rules changed in April 2026</h3>
             <p style={s.p}>
-              HMRC allows UK nationals living abroad to pay voluntary Class 2 or Class 3 NI
-              contributions to maintain their State Pension entitlement. Class 2 contributions
-              are available if you were previously employed or self-employed in the UK and are
-              working abroad — the rate is £3.45 per week for 2024/25, or approximately £179
-              per year. Class 3 contributions, available more broadly, cost £17.45 per week
-              (approximately £908 per year). Where you qualify for Class 2, it is almost always
-              the better option.
+              HMRC allows UK nationals living abroad to pay voluntary NI contributions to
+              maintain their State Pension entitlement, but the cheap route has closed.
+              From <strong>6 April 2026 you can no longer pay voluntary Class 2 contributions
+              for periods spent abroad</strong>. For 2026/27 onwards the only class available
+              to expats is Class 3, at £18.40 per week — £956.80 a year. (Class 2, had it
+              still been open, would have been £3.65 a week or £189.80 a year, so the change
+              costs an overseas contributor roughly £767 a year.) HMRC began writing to
+              affected contributors from July 2026.
             </p>
             <p style={s.p}>
-              The maths is compelling. Each qualifying year you purchase secures approximately
-              £6.32 per week of additional State Pension (£221.20 ÷ 35), or around £329 per year
-              in retirement, for life. At Class 2 rates, you are paying £179 to secure £329 per
-              year — a payback period of under seven months from the point you start drawing
-              the pension. For anyone in their 30s or 40s moving to Dubai for a few years, this
-              is one of the best-value financial decisions available.
+              New Class 3 applicants also have to demonstrate a stronger connection to the
+              UK than before — broadly, ten years of continuous UK residence or ten years
+              of UK National Insurance contributions.
+            </p>
+            <p style={s.p}>
+              The maths still works for most people, just less spectacularly. Each qualifying
+              year you buy secures roughly £6.89 per week of additional State Pension
+              (£241.30 ÷ 35), or about £358 a year in retirement, for life. At the Class 3
+              rate you are paying £956.80 to secure £358 a year — a payback period of a little
+              under three years from the point you start drawing the pension. Still a good
+              return, but no longer the near-automatic decision it was under Class 2, so check
+              your State Pension forecast before paying for years you may not need.
             </p>
             <p style={s.p}>
               You register to pay voluntary contributions using HMRC&apos;s CF83 form, available
@@ -255,9 +262,12 @@ export default function UkPensionDubaiGuide() {
             <p style={s.p}>
               Since 9 March 2017, most transfers to a QROPS are subject to a 25% Overseas
               Transfer Charge (OTC) — payable to HMRC — unless a specific exemption applies.
-              The main exemptions include: the receiving scheme is in the same country as your
-              country of residence; the receiving scheme is in the EEA and you are also resident
-              in the EEA; or the receiving scheme is an employer-sponsored scheme. Importantly,
+              The main remaining exemptions are: the receiving scheme is in the same country
+              in which you are resident, or the receiving scheme is an employer-sponsored
+              occupational scheme (or an overseas public service or international organisation
+              scheme). The old exclusion for transfers to a QROPS in the EEA or Gibraltar was
+              <strong> abolished for transfers made on or after 30 October 2024</strong>, so
+              EEA schemes now sit on the same footing as the rest of the world. Importantly,
               there is no general exemption for UAE residents transferring to a UAE or Isle of
               Man QROPS — meaning the 25% charge typically applies, wiping out a quarter of
               the pension pot before a single investment decision is made.

@@ -404,11 +404,14 @@ export default function HousingGuide() {
                 The property purchase process involves several key steps. First, you find the
                 property you want to purchase. Next, you negotiate the price and sign a
                 preliminary purchase agreement. You then arrange financing if you're taking a
-                mortgage. Most UAE banks offer mortgages to expatriates, typically up to
-                seventy-five percent loan-to-value (LTV) for the first property if the price
-                is under AED 5 million. For example, if you're buying a property for AED 2
-                million, you can typically borrow up to AED 1.5 million and need to pay AED
-                500,000 as a down payment.
+                mortgage. Under Central Bank of the UAE rules (as amended in 2020), expatriates
+                buying their first home can borrow up to eighty percent loan-to-value (LTV) where
+                the property is worth AED 5 million or less, and up to seventy percent above that.
+                Second and subsequent properties are capped at sixty percent, and off-plan at fifty
+                percent. For example, if you're buying a first property for AED 2 million, you can
+                typically borrow up to AED 1.6 million and need to pay AED 400,000 as a down
+                payment — although in practice many banks apply their own buffer and ask for
+                twenty-five percent.
               </p>
               <p>
                 Transfer fees, known as DLD (Dubai Land Department) fees, amount to approximately

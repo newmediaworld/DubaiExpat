@@ -248,8 +248,8 @@ export default function CostOfLivingPage() {
                 UK salary of £100,000 — take-home comparison
               </p>
               <p style={s.calloutText}>
-                <strong>In the UK:</strong> Gross salary £100,000 → Income tax ~£27,500 →
-                National Insurance ~£5,500 → Net take-home ~£67,000/year (£5,580/month)
+                <strong>In the UK:</strong> Gross salary £100,000 → Income tax ~£27,400 →
+                National Insurance ~£4,000 → Net take-home ~£68,600/year (£5,715/month)
               </p>
               <p style={{ ...s.calloutText, marginTop: '0.5rem' }}>
                 <strong>In Dubai (equivalent package):</strong> Gross salary AED 550,000
@@ -310,11 +310,11 @@ export default function CostOfLivingPage() {
             </p>
             <ul style={s.ul}>
               <li style={s.li}><strong>Income tax:</strong> £0 vs £27,500+ on a £100,000 UK salary</li>
-              <li style={s.li}><strong>National Insurance:</strong> £0 (as a Dubai resident) vs £5,500+ per year</li>
+              <li style={s.li}><strong>National Insurance:</strong> £0 (as a Dubai resident) vs roughly £4,000 per year on a £100,000 salary (8% between £12,570 and £50,270, 2% above)</li>
               <li style={s.li}><strong>Council tax:</strong> No equivalent in Dubai. A typical London Band D is £2,000+ per year</li>
-              <li style={s.li}><strong>TV licence:</strong> £169 per year, not applicable in Dubai</li>
+              <li style={s.li}><strong>TV licence:</strong> £180 per year from 1 April 2026, not applicable in Dubai</li>
               <li style={s.li}><strong>Rent (for equivalent space):</strong> Typically 20–40% cheaper in Dubai compared to equivalent Zone 1–2 London, though less so vs outer London</li>
-              <li style={s.li}><strong>Car costs:</strong> Petrol is substantially cheaper (approximately 30–40p per litre equivalent), and parking is generally free or very cheap in Dubai, unlike London</li>
+              <li style={s.li}><strong>Car costs:</strong> Petrol is substantially cheaper — Special 95 was AED 3.49/litre in August 2026, roughly 75p, against about £1.35 in the UK — and parking is generally cheaper than London, though Dubai&apos;s Parkin charges and Salik tolls both picked up 5% VAT on 1 June 2026</li>
               <li style={s.li}><strong>Domestic help:</strong> A full-time live-in housekeeper in Dubai costs AED 1,800–3,000 per month (£390–645), including visa sponsorship costs — a fraction of equivalent childcare or domestic help in London</li>
             </ul>
           </div>

@@ -162,7 +162,7 @@ export default function NightlifeGuidePage() {
             <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
               <h3 className="font-semibold text-[#0A1628]">Personal Liquor Licence</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                Non-Muslim UAE residents can apply for a personal liquor licence through MMI (Maritime and Mercantile International) or African+Eastern, the two licensed alcohol retailers. This allows you to purchase alcohol from their stores to consume at home. The licence costs around AED 150/year and is linked to your Emirates ID. Without it, you technically cannot buy alcohol from a retail store — though in practice enforcement varies. Apply once you have your Emirates ID.
+                Non-Muslim UAE residents can apply for a personal liquor licence through MMI (Maritime and Mercantile International) or African+Eastern, the two licensed alcohol retailers. This allows you to purchase alcohol from their stores to consume at home. Since 1 January 2023 the licence has been <strong>free</strong> — Dubai Municipality dropped the fee at the same time as it suspended the 30% municipality tax on alcohol sales (5% VAT still applies). It is linked to your Emirates ID and can be applied for in the MMI or A&amp;E app. Without it, you technically cannot buy alcohol from a retail store. Apply once you have your Emirates ID.
               </p>
             </div>
           </section>
@@ -171,7 +171,7 @@ export default function NightlifeGuidePage() {
           <section className="space-y-5">
             <h2 className="text-2xl font-bold text-[#0A1628]">Friday Brunch: A Dubai Institution</h2>
             <p className="text-slate-600 leading-relaxed">
-              If there is one social ritual that defines expat life in Dubai, it is Friday brunch. The UAE weekend runs Friday–Saturday, and Friday brunch has evolved into a multi-hour extravaganza combining unlimited food, free-flowing drinks, and live music — typically running from noon to 4pm, often continuing informally until evening.
+              If there is one social ritual that defines expat life in Dubai, it is Friday brunch. The UAE moved to a Saturday–Sunday weekend on 1 January 2022, with Friday a half-day for the federal public sector — but the brunch tradition stayed put on Friday, and many venues now run a Saturday sitting too. Friday brunch has evolved into a multi-hour extravaganza combining unlimited food, free-flowing drinks, and live music — typically running from noon to 4pm, often continuing informally until evening.
             </p>
             <p className="text-slate-600 leading-relaxed">
               Almost every hotel and many licensed restaurants offer a Friday brunch package. Prices typically range from AED 250 to AED 700 per person (approximately £54–£150) depending on whether the drinks package is included and how premium the venue is. For UK expats used to pub lunches, it takes some adjustment — but most quickly come to love it.

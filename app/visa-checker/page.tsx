@@ -167,7 +167,7 @@ const VISA_DETAILS: Record<VisaType, { summary: string; nextSteps: string[] }> =
   },
   retirement: {
     summary:
-      "The Retirement Visa gives you 5-year renewable residency if you're 55 or over. You'll need to meet one of the financial requirements: property worth AED 2M, savings of AED 1M, or active income of AED 20,000/month.",
+      "The Retirement Visa gives you 5-year renewable residency if you're 55 or over and have worked at least 15 years. You'll need to meet one of the financial requirements: UAE property worth AED 1M, savings of AED 1M, or an income of AED 20,000/month (AED 15,000 under Dubai's own Retire in Dubai programme).",
     nextSteps: [
       "Choose which financial requirement you'll meet (property, savings, or income)",
       "Prepare supporting documents (bank statements, title deeds, pension letters)",

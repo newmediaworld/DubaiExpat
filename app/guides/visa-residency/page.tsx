@@ -169,12 +169,15 @@ export default function VisaResidencyGuide() {
                 setting up their own ventures.
               </p>
               <p>
-                To qualify for a Green Visa, you must meet one of two criteria. The
-                first is educational: you must hold a bachelor's degree or higher from
-                a recognized institution. The second is financial: you must have a
-                confirmed monthly salary of AED 15,000 or above. Additionally, you need
-                to provide evidence of valid employment (a current employment contract
-                with a UAE company) or a business licence if you're self-employed.
+                To qualify for a Green Visa as a skilled employee you must meet all three
+                criteria, not just one of them. You must hold a bachelor's degree or higher
+                from a recognised institution; your job must be classified at MOHRE
+                occupational skill level 1, 2 or 3 (managerial, professional or technician);
+                and your monthly basic salary must be at least AED 15,000 — basic salary only,
+                with housing and transport allowances excluded. You also need a valid
+                employment contract with a UAE company (or a freelance/business licence if
+                you're self-employed), UAE health insurance, and a criminal record certificate
+                from your home country.
               </p>
               <p>
                 The Green Visa is valid for five years and can be renewed. It grants you
@@ -312,13 +315,15 @@ export default function VisaResidencyGuide() {
                 requirements you must meet.
               </p>
               <p>
-                To qualify for a Retirement Visa, you must meet at least one of the
-                following three criteria. The first is a monthly income: you must have a
-                confirmed monthly income of AED 20,000 or above. The second is liquid
-                savings: you must demonstrate savings of at least AED 1 million in a UAE
-                bank account. The third is property ownership: you must own UAE property
-                worth AED 2 million or above. Many retirees opt for the property route,
-                particularly those who are planning to settle in Dubai long-term anyway.
+                To qualify you need to be at least 55 and to have worked for no fewer than
+                15 years, in the UAE or elsewhere. You then have to meet at least one of the
+                financial tests. The first is income: an annual income of at least AED 180,000
+                — that is AED 20,000 a month, though Dubai's own &ldquo;Retire in Dubai&rdquo;
+                programme sets the monthly figure at AED 15,000. The second is liquid savings
+                of at least AED 1 million. The third is property ownership: UAE property worth
+                at least AED 1 million (not AED 2 million — that is the Golden Visa threshold,
+                and the two are frequently conflated). Dubai also allows applicants to combine
+                property and savings to reach the threshold.
               </p>
               <p>
                 The Retirement Visa is issued for a five-year period and is renewable. It
@@ -347,7 +352,11 @@ export default function VisaResidencyGuide() {
               </p>
               <p>
                 To sponsor your spouse, you must have a confirmed monthly salary of AED
-                4,000 or above. Your spouse's visa is valid for the same period as your
+                4,000 or above, or AED 3,000 or above where your employer provides
+                accommodation (a housing allowance does not count — the employer has to
+                certify that housing itself is provided). Female sponsors bringing a husband
+                and children face a higher bar, currently AED 10,000 a month or AED 8,000
+                plus accommodation. Your spouse's visa is valid for the same period as your
                 own and is renewed together with yours. The process requires documentation
                 of your marriage, your spouse's passport, medical fitness certificate, and
                 proof of your salary and employment.
@@ -361,9 +370,13 @@ export default function VisaResidencyGuide() {
                 increments for each family member added.
               </p>
               <p>
-                Sponsoring parents is also possible, though with stricter requirements.
-                You must have a much higher salary (often AED 10,000 or above), and there
-                are age and financial independence criteria for the parents themselves.
+                Sponsoring parents is also possible, though with much stricter requirements.
+                You need a monthly salary of at least AED 20,000, or AED 19,000 plus
+                employer-provided two-bedroom accommodation, and you must post a refundable
+                bank guarantee of AED 5,000 per parent. You also have to sponsor both parents
+                together unless one is deceased or the parents are divorced. Parent visas are
+                issued for one year and renewed annually against fresh proof that you still
+                clear the salary threshold.
                 Sponsoring parents is becoming increasingly common as expats decide to
                 retire in the UAE alongside their adult children.
               </p>

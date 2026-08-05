@@ -342,12 +342,13 @@ export default function TaxAndHmrcGuide() {
             <h3 style={s.h3}>Tax on rental income as a non-resident</h3>
             <p style={s.p}>
               Non-resident landlords pay UK income tax on their net rental profits (income
-              minus allowable expenses) at UK rates. The personal allowance is available to
-              most EEA nationals but not to non-EEA residents — and as UAE residents you
-              would typically not receive the personal allowance, meaning tax applies from
-              the first pound of rental profit. Allowable deductions include mortgage
-              interest (subject to restrictions introduced in 2020), letting agent fees,
-              maintenance and repairs, insurance, and service charges.
+              minus allowable expenses) at UK rates. British citizens keep their UK personal
+              allowance even after they become non-resident — entitlement flows from section 56
+              of the Income Tax Act 2007, which covers UK and EEA nationals, and it is not lost
+              by moving to the UAE. Allowable deductions include letting agent fees, maintenance
+              and repairs, insurance, and service charges. Mortgage interest is no longer a
+              deductible expense on residential lettings: since April 2020 it has instead been
+              given as a basic-rate (20%) tax reducer.
             </p>
             <p style={s.p}>
               Capital gains tax also applies to UK residential property disposed of by
@@ -365,29 +366,35 @@ export default function TaxAndHmrcGuide() {
             <p style={s.p}>
               When you move to Dubai and stop working in the UK, your National Insurance
               contributions typically stop. This has a direct impact on your entitlement to
-              the UK State Pension. To receive the full new State Pension (£221.20 per week
-              as of 2024/25), you need 35 qualifying years of National Insurance contributions.
+              the UK State Pension. To receive the full new State Pension (£241.30 per week
+              in 2026/27), you need 35 qualifying years of National Insurance contributions.
               To receive any State Pension at all, you need at least 10 qualifying years.
               Years working in Dubai do not count toward your UK NI record.
             </p>
 
-            <h3 style={s.h3}>Voluntary contributions: Class 2 and Class 3</h3>
+            <h3 style={s.h3}>Voluntary contributions: the Class 2 route has closed</h3>
             <p style={s.p}>
               HMRC allows non-resident UK nationals to make voluntary National Insurance
-              contributions to protect their State Pension entitlement. The two relevant
-              classes are Class 2 (available if you are working abroad and meet certain
-              conditions, currently £3.45 per week for 2024/25) and Class 3 (available
-              to anyone not working abroad in a qualifying capacity, currently £17.45 per
-              week for 2024/25). Class 2 is substantially cheaper and, where available,
-              is the option most advisers recommend.
+              contributions to protect their State Pension entitlement — but the terms
+              changed materially on 6 April 2026. Voluntary Class 2 contributions, which
+              cost £3.65 per week in 2026/27, are <strong>no longer available for periods
+              spent abroad</strong>. For tax year 2026/27 onwards the only voluntary class
+              open to expats is Class 3, at £18.40 per week (£956.80 a year). HMRC began
+              writing to affected contributors from July 2026.
+            </p>
+            <p style={s.p}>
+              New applicants for voluntary Class 3 also have to show a stronger UK
+              connection than before — broadly, ten years of continuous UK residence or
+              ten years of UK National Insurance contributions.
             </p>
             <p style={s.p}>
               You can check your State Pension forecast and NI record through the HMRC
-              personal tax account at gov.uk. For most UK expats in their 30s and 40s
-              heading to Dubai for a few years, continuing Class 2 contributions is a
-              very cost-effective way to protect a pension entitlement worth tens of
-              thousands of pounds over retirement. The annual cost (roughly £179 for
-              Class 2) is modest relative to the State Pension benefit it protects.
+              personal tax account at gov.uk. Even at the Class 3 rate the arithmetic
+              is usually still favourable: each qualifying year buys roughly £6.89 per
+              week of extra State Pension (£241.30 ÷ 35), around £358 a year for life,
+              against a one-off cost of £956.80 — but it is no longer the near-automatic
+              decision it was when Class 2 was on the table, and it is worth checking
+              your forecast before paying.
             </p>
             <p style={s.p}>
               You should register to pay voluntary contributions before you leave or
@@ -401,8 +408,10 @@ export default function TaxAndHmrcGuide() {
           <h2 style={s.h2}>The UK-UAE Double Taxation Agreement</h2>
           <div style={s.body}>
             <p style={s.p}>
-              The UK and UAE have had a Double Taxation Agreement (DTA) in force since 1993.
-              Its primary purpose is to prevent the same income being taxed in both countries.
+              The comprehensive UK-UAE Double Taxation Convention was signed on 12 April 2016,
+              entered into force on 25 December 2016 and took effect from 1 January 2017. (An
+              earlier 1993 agreement between the two countries covered only income from
+              international air transport.) Its primary purpose is to prevent the same income being taxed in both countries.
               In practice, since the UAE charges zero personal income tax, the agreement is
               less relevant for most employed expats than it would be for a move to, say,
               France or Germany — because there is no UAE tax to offset against UK tax.
@@ -411,8 +420,11 @@ export default function TaxAndHmrcGuide() {
               However, the DTA is relevant in a number of specific circumstances. Pension income
               — including UK private and State Pension payments — is generally taxable only in
               the country of residence under the agreement, which can be advantageous for
-              UK expats in Dubai drawing on pension income. Dividends from UK companies
-              are generally taxable in the UK at reduced withholding tax rates. Rental income
+              UK expats in Dubai drawing on pension income. Dividends from UK companies are a
+              common source of confusion: the UK does not levy any withholding tax on dividends,
+              and for a non-resident they generally fall within the &ldquo;disregarded income&rdquo;
+              rules, so the UK tax liability is usually limited to the tax already treated as
+              paid at source. Rental income
               from UK property, however, remains taxable in the UK regardless of the DTA,
               as real property is almost universally taxed where it is situated under international
               tax treaty norms.
