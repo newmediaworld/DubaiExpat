@@ -353,7 +353,7 @@ export default function HousingGuide() {
                 it's more expensive per night than long-term rent, but it provides invaluable
                 flexibility and peace of mind while you adjust to the city. We've found{" "}
                 <a
-                  href="https://clk.omgt6.com/?PID=12746&AID=2361711&MID=guide-housing-short-term-body"
+                  href="https://clk.omgt6.com/?PID=12746&AID=2361711&WID=166927&UID=guide-housing-short-term-body"
                   target="_blank"
                   rel="noopener noreferrer sponsored"
                   className="font-semibold underline hover:text-[#C9A84C]"
