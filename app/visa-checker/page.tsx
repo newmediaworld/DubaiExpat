@@ -193,6 +193,10 @@ export default function VisaCheckerPage() {
   const [showEmailGate, setShowEmailGate] = useState(false);
   const [email, setEmail] = useState("");
   const [emailSubmitted, setEmailSubmitted] = useState(false);
+  // Set when /api/subscribe reports a real failure. Until 2026-08-06 the
+  // submit handler swallowed every outcome and always advanced to the
+  // success state. (Plumbing audit 2026-08-06, finding A3.)
+  const [emailFailed, setEmailFailed] = useState(false);
   const [consent, setConsent] = useState(false);
 
   const currentQuestion = QUESTIONS[step];
@@ -410,12 +414,13 @@ export default function VisaCheckerPage() {
                 onSubmit={async (e) => {
                   e.preventDefault();
                   if (email.trim() && consent) {
+                    setEmailFailed(false);
                     try {
                       // Compute visa recommendation at submit time so we
                       // send the exact same result the user just saw.
                       const computedRoute = getVisaResult(answers);
                       const computedName = VISA_NAMES[computedRoute];
-                      await fetch("/api/subscribe", {
+                      const res = await fetch("/api/subscribe", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({
@@ -428,7 +433,18 @@ export default function VisaCheckerPage() {
                           visaAnswers: answers,
                         }),
                       });
-                    } catch {}
+                      // contactCreated means the subscriber is stored and
+                      // only the follow-up email failed, so the result page
+                      // is still honest. Anything else is a real failure.
+                      const data = await res.json().catch(() => ({}));
+                      if (!res.ok && data.contactCreated !== true) {
+                        setEmailFailed(true);
+                        return;
+                      }
+                    } catch {
+                      setEmailFailed(true);
+                      return;
+                    }
                     setEmailSubmitted(true);
                   }
                 }}
@@ -458,6 +474,16 @@ export default function VisaCheckerPage() {
                     Send my results →
                   </button>
                 </div>
+
+                {emailFailed && (
+                  <p
+                    role="alert"
+                    className="rounded-lg bg-red-50 px-3 py-2 text-xs font-medium text-red-700 ring-1 ring-red-200"
+                  >
+                    Something went wrong and we couldn&apos;t send your results.
+                    Please try again in a moment.
+                  </p>
+                )}
 
                 <label className="flex items-center gap-2 text-xs text-slate-500">
                   <input

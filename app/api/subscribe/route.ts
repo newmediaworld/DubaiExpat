@@ -126,11 +126,23 @@ export async function POST(request: Request) {
     const pendingListId = Number(process.env.BREVO_DX_PENDING_LIST_ID || 0);
 
     if (!apiKey || !pendingListId) {
+      // Hard fail. This used to return 200 {ok:true}: the form showed a
+      // success message while the subscriber was silently discarded, and the
+      // only evidence was a log line nobody reads. A 500 makes the form show
+      // an error and makes the failure visible to uptime monitoring.
+      // (Plumbing audit 2026-08-06, finding A3.)
       console.error(
-        "Brevo env missing: BREVO_API_KEY or BREVO_DX_PENDING_LIST_ID"
+        "[subscribe] CONFIG_ERROR: Brevo env missing — subscriber discarded.",
+        `BREVO_API_KEY=${apiKey ? "set" : "MISSING"}`,
+        `BREVO_DX_PENDING_LIST_ID=${pendingListId ? "set" : "MISSING"}`
       );
-      // Return ok to avoid exposing infra, but log for observability.
-      return NextResponse.json({ ok: true });
+      return NextResponse.json(
+        {
+          error: "Something went wrong. Please try again.",
+          code: "CONFIG_ERROR",
+        },
+        { status: 500 }
+      );
     }
 
     // Ensure new attributes exist in Brevo schema (idempotent, cached).
@@ -192,11 +204,26 @@ export async function POST(request: Request) {
       }),
     });
 
-    if (!res.ok && res.status !== 400) {
-      // Brevo returns 400 for "contact already exists" when updateEnabled
-      // is false, but we have updateEnabled: true so any 4xx/5xx is real.
+    // Brevo returns 201 on create and 204 on update. With updateEnabled:true
+    // there is no "contact already exists" 400 to forgive, so any non-2xx is
+    // real — including a 401 from a rotated/revoked key. The old condition
+    // excused 400s (contradicting its own comment) and, worse, only logged
+    // before carrying on to return ok:true, so a Brevo 4xx was reported to
+    // the user as success. (Plumbing audit 2026-08-06, finding A3.)
+    if (!res.ok) {
       const errText = await res.text().catch(() => "");
-      console.error("Brevo subscribe failed:", res.status, errText);
+      console.error(
+        "[subscribe] BREVO_CONTACT_FAILED:",
+        res.status,
+        errText.slice(0, 500)
+      );
+      return NextResponse.json(
+        {
+          error: "Something went wrong. Please try again.",
+          code: "BREVO_CONTACT_FAILED",
+        },
+        { status: 502 }
+      );
     }
 
     // Magnet delivery — look up the magnet by slug and send the email
@@ -266,10 +293,12 @@ export async function POST(request: Request) {
         });
         if (!emailRes.ok) {
           const errText = await emailRes.text().catch(() => "");
+          // Detail stays server-side: Brevo error bodies can echo request
+          // content and auth state, and this response reaches the browser.
           console.error(
-            "Brevo magnet email failed:",
+            "[subscribe] BREVO_SEND_FAILED:",
             emailRes.status,
-            errText
+            errText.slice(0, 500)
           );
           // Surface as 502 so monitoring catches it. Contact already
           // upserted above, so include contactCreated:true to keep the
@@ -277,19 +306,18 @@ export async function POST(request: Request) {
           return NextResponse.json(
             {
               error: "Subscribed but magnet delivery failed — we will retry.",
-              detail: `BREVO_SEND_FAILED:${emailRes.status}:${errText.slice(0, 200)}`,
+              code: "BREVO_SEND_FAILED",
               contactCreated: true,
             },
             { status: 502 }
           );
         }
       } catch (emailErr) {
-        console.error("Brevo magnet email exception:", emailErr);
-        const msg = emailErr instanceof Error ? emailErr.message : String(emailErr);
+        console.error("[subscribe] BREVO_SEND_EXCEPTION:", emailErr);
         return NextResponse.json(
           {
             error: "Subscribed but magnet delivery failed — we will retry.",
-            detail: `BREVO_SEND_EXCEPTION:${msg.slice(0, 200)}`,
+            code: "BREVO_SEND_EXCEPTION",
             contactCreated: true,
           },
           { status: 502 }
@@ -299,13 +327,13 @@ export async function POST(request: Request) {
       // Unknown magnet slug — caller bug. Return 400 with structured
       // detail so the form-builder sees it; previously this was a silent
       // warn + ok:true that took a Brevo dashboard inspection to detect.
-      console.warn(
-        `No magnet config found for slug: ${magnetKey}. Email not sent.`
+      console.error(
+        `[subscribe] UNKNOWN_MAGNET_SLUG: ${magnetKey}. Email not sent.`
       );
       return NextResponse.json(
         {
-          error: "Unknown magnet slug",
-          detail: `UNKNOWN_MAGNET_SLUG:${magnetKey}`,
+          error: "Something went wrong. Please try again.",
+          code: "UNKNOWN_MAGNET_SLUG",
           contactCreated: true,
         },
         { status: 400 }
@@ -318,10 +346,10 @@ export async function POST(request: Request) {
     // The previous ok:true was actively deceptive — programmer errors
     // and network failures looked successful to the caller. See
     // SHARED/lessons.md 2026-06-21.
-    console.error("Subscribe error:", error);
-    const msg = error instanceof Error ? error.message : String(error);
+    // The message itself stays in the log; it can contain internals.
+    console.error("[subscribe] UNHANDLED:", error);
     return NextResponse.json(
-      { error: "Something went wrong. Please try again.", detail: msg.slice(0, 200) },
+      { error: "Something went wrong. Please try again.", code: "UNHANDLED" },
       { status: 500 }
     );
   }

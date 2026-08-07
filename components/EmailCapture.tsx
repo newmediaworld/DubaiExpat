@@ -30,7 +30,9 @@ export default function EmailCapture({
 }: EmailCaptureProps) {
   const pathname = usePathname();
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "done">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">(
+    "idle"
+  );
 
   // Re-entry guard: a useRef sets synchronously, so a fast double-click
   // (or a mobile double-tap) can't race past the button-disabled state
@@ -45,8 +47,13 @@ export default function EmailCapture({
     submittingRef.current = true;
     setStatus("loading");
 
+    // The response is now inspected. Until 2026-08-06 this was a bare
+    // `await fetch(...)` followed by setStatus("done"), so the form showed
+    // success even when the API returned 500 (Brevo env missing) or 502
+    // (Brevo rejected the request) and nothing had been stored.
+    // (Plumbing audit 2026-08-06, finding A3.)
     try {
-      await fetch("/api/subscribe", {
+      const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -57,13 +64,48 @@ export default function EmailCapture({
           guideTopic,
         }),
       });
+
+      // A non-2xx that still carries contactCreated means the subscriber IS
+      // stored and only the magnet email failed — the API retries that, so
+      // showing success is honest. Anything else is a real failure.
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok && data.contactCreated !== true) {
+        setStatus("error");
+        submittingRef.current = false;
+        return;
+      }
     } catch {
-      // Silent fail — we still show success to the user so they aren't
-      // blocked by a transient network hiccup. Brevo logs + server logs
-      // are the source of truth.
+      setStatus("error");
+      submittingRef.current = false;
+      return;
     }
 
     setStatus("done");
+  }
+
+  if (status === "error") {
+    return (
+      <section className="rounded-2xl bg-[#0A1628] px-6 py-10 text-center shadow-md sm:px-10">
+        <div className="mx-auto max-w-lg">
+          <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full bg-red-500/20 text-2xl">
+            !
+          </div>
+          <p className="text-lg font-semibold text-red-300">
+            Something went wrong
+          </p>
+          <p className="mt-2 text-sm text-slate-300">
+            We could not sign you up just then. Please try again.
+          </p>
+          <button
+            type="button"
+            onClick={() => setStatus("idle")}
+            className="mt-5 rounded-xl bg-[#C9A84C] px-6 py-3 text-sm font-bold text-[#0A1628] transition hover:bg-[#d5b760] active:scale-95"
+          >
+            Try again
+          </button>
+        </div>
+      </section>
+    );
   }
 
   if (status === "done") {
