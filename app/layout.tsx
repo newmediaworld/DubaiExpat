@@ -105,7 +105,10 @@ export default function RootLayout({
                     return{programme:OPTIMISE_PIDS[pid]||'optimise',clickref:uid||('PID='+pid)};
                   }
                   if(host==='awin1.com')return{programme:'awin',clickref:p.get('clickref')};
-                  if(host==='apply.creatory.singsaver.com.sg')return{programme:'creatory_singsaver',clickref:p.get('s2')||('o='+p.get('o'))};
+                  // Creatory runs on Scaleo: sub-ID slots are sub_id1..sub_id5,
+                  // not s2 (that's Optimise). s2 kept as fallback for old links.
+                  if(host==='apply.creatory.singsaver.com.sg')return{programme:'creatory_singsaver',clickref:p.get('sub_id1')||p.get('s2')||('o='+p.get('o'))};
+                  if(host==='apply.creatory.moneyhero.com.hk')return{programme:'creatory_moneyhero_hk',clickref:p.get('sub_id1')||p.get('s2')||('o='+p.get('o'))};
                   // Amazon Associates. Gated on tag= deliberately: an untagged
                   // amazon.* link earns nothing, so firing affiliate_click on it
                   // would inflate the count. Same rule as safetywing/referenceID.
