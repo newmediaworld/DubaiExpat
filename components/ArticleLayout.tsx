@@ -3,7 +3,9 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import SchemaJsonLd from "@/components/SchemaJsonLd";
 import RelatedGuides from "@/components/RelatedGuides";
+import EmailCapture from "@/components/EmailCapture";
 import { getRelatedArticles } from "@/lib/related-articles";
+import { getArticleMagnet } from "@/lib/article-magnet";
 
 interface ArticleFrontmatter {
   title: string;
@@ -100,6 +102,40 @@ export default function ArticleLayout({ frontmatter, children }: ArticleLayoutPr
             {children}
           </div>
         </div>
+
+        {/* Email capture.
+            Placed after the article body and BEFORE related articles: the reader
+            has just finished the piece, which is peak intent, and the related
+            cluster is the main exit route off the page.
+
+            Added 17 Aug 2026. Until then DX had this component, four working
+            magnets and a correct /api/subscribe route — and no capture on any
+            article, only on three hub pages that get almost no search traffic.
+            Every article impression landed on a page with no form on it, and the
+            DX_GENERAL list was empty as a direct result. Mounting it here covers
+            all 22 articles at once, and every article added later.
+
+            The magnet is chosen by category (lib/article-magnet.ts) so a reader
+            on the pension piece is offered the pension guide, not a generic
+            checklist — relevance is the difference between a 1% and a 5% rate. */}
+        <section className="px-4 pb-12 md:px-8">
+          <div className="max-w-4xl mx-auto">
+            {(() => {
+              const magnet = getArticleMagnet(category);
+              return (
+                <EmailCapture
+                  headline={magnet.headline}
+                  subheading={magnet.subheading}
+                  cta={magnet.cta}
+                  firstMagnet={magnet.firstMagnet}
+                  guideTopic={magnet.guideTopic}
+                  sourceType="inline-cta"
+                  sourcePage={slug ? `/articles/${slug}` : undefined}
+                />
+              );
+            })()}
+          </div>
+        </section>
 
         {/* Auto-injected related-articles cluster — boosts internal-link density.
             Reads same-category siblings + cluster anchors via lib/related-articles. */}
