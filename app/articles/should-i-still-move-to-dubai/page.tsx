@@ -89,7 +89,7 @@ export default function ShouldIStillMoveToDubai() {
                 Six months ago, the answer was uncomplicated. Dubai was booming. Property prices were rising, new visa categories had opened the door to freelancers and investors, and the city was attracting record numbers of British expats drawn by zero income tax, year-round sunshine, and a lifestyle that was hard to match anywhere in Europe.
               </p>
               <p>
-                Then the Iran strikes began, and the conversation changed overnight. Search volumes for &ldquo;is Dubai safe&rdquo; overtook &ldquo;move to Dubai&rdquo; for the first time. The FCDO raised its advisory to &ldquo;against all but essential travel.&rdquo; And suddenly, the people who&rsquo;d been planning their relocation were asking a more fundamental question: should I still go?
+                Then the Iran strikes began, and the conversation changed overnight. Search volumes for &ldquo;is Dubai safe&rdquo; overtook &ldquo;move to Dubai&rdquo; for the first time. The FCDO raised its advisory to &ldquo;against all but essential travel&rdquo; &mdash; a warning it held from 28 February until lifting it on 18 June 2026. And suddenly, the people who&rsquo;d been planning their relocation were asking a more fundamental question: should I still go?
               </p>
               <p>
                 The honest answer is: it depends on your circumstances, your timeline, and your tolerance for uncertainty. This article lays out the considerations as clearly as we can, without either downplaying the risks or writing off Dubai&rsquo;s future.
@@ -109,7 +109,7 @@ export default function ShouldIStillMoveToDubai() {
                 If you don&rsquo;t have an urgent reason to be in Dubai right now, waiting is the pragmatic choice. Here&rsquo;s why.
               </p>
               <p>
-                <strong className="text-[#0A1628]">The FCDO advisory matters practically, not just symbolically.</strong> When the FCDO advises against all but essential travel, it isn&rsquo;t just a recommendation &mdash; it triggers real consequences. Most UK travel insurance policies become void for new trips to the destination. Employer duty-of-care obligations become more complex. Some mortgage and financial products may have clauses tied to residency in advisory-flagged countries. Moving while the advisory is active means accepting gaps in your safety net that wouldn&rsquo;t exist in normal times.
+                <strong className="text-[#0A1628]">The FCDO advisory mattered practically, not just symbolically &mdash; and it has since been lifted.</strong> While it was in force, from 28 February to 18 June 2026, it triggered real consequences: most UK travel insurance policies became void for new trips to the destination, employer duty-of-care obligations became more complex, and some mortgage and financial products carry clauses tied to residency in advisory-flagged countries. As of 20 August 2026 the FCDO does not advise against travel to the UAE, so those gaps have closed by default &mdash; but check your own policy wording rather than assuming, because insurers set conflict-zone exclusions on their own terms.
               </p>
               <p>
                 <strong className="text-[#0A1628]">The security situation is unpredictable.</strong> While the UAE&rsquo;s air-defence systems have been largely effective, the conflict is ongoing. Nobody can guarantee the trajectory &mdash; whether it escalates, de-escalates, or settles into a prolonged low-level pattern. Making a major life decision with this much uncertainty in play is a risk that most financial advisers would counsel against.
@@ -212,7 +212,7 @@ export default function ShouldIStillMoveToDubai() {
                 </p>
                 <ul className="list-disc pl-5 space-y-3 text-gray-600 text-sm">
                   <li>
-                    <strong>Is the FCDO advisory still active?</strong> If yes, understand that your insurance, employer obligations, and legal protections may be affected. Consider waiting until it&rsquo;s downgraded.
+                    <strong>Is there an FCDO advisory against travel to the UAE?</strong> As of 20 August 2026 there is not &mdash; the February&ndash;June 2026 advisory was lifted on 18 June. Check gov.uk for the current position before you commit, and confirm cover with your insurer separately, since conflict-zone exclusions are set by insurers rather than by the FCDO.
                   </li>
                   <li>
                     <strong>Do you have employer support?</strong> Relocating with a company that provides security briefings, insurance, and contingency plans is fundamentally different from going independently.

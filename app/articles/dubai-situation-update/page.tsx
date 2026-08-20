@@ -126,7 +126,7 @@ export default function DubaiSituationUpdate() {
                 The expats who&rsquo;ve returned to the UK have their own compelling logic. For families with young children, the risk calculation is fundamentally different. Even if the statistical likelihood of harm remains low, the psychological burden of air-raid sirens and news alerts takes a toll that spreadsheets can&rsquo;t capture.
               </p>
               <p>
-                Insurance has become a significant practical issue. Many international health and travel insurance policies contain conflict-zone exclusions that have been triggered by the FCDO advisory. For some expats, the moment their insurance coverage became uncertain was the moment the decision made itself.
+                Insurance became a significant practical issue while the FCDO advisory was in force between 28 February and 18 June 2026, because many international health and travel policies contain conflict-zone exclusions tied to government advice. For some expats, the moment their cover became uncertain was the moment the decision made itself. With the advisory lifted, those exclusions no longer trigger automatically &mdash; but insurers set their own terms, so check your policy wording rather than assuming cover is restored.
               </p>
               <p>
                 Employers have played a role too. Several multinational companies with Dubai offices have offered voluntary relocation packages, and some have mandated the departure of non-essential staff. For employees in those positions, the company effectively made the decision for them.
