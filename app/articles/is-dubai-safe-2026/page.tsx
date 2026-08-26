@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import SchemaJsonLd from "@/components/SchemaJsonLd";
 import { pageMetadata } from "@/lib/metadata";
+import EmailCapture from "@/components/EmailCapture";
 
 const TITLE = "Is Dubai Safe for Expats in 2026? UK Citizen Guide";
 const DESCRIPTION =
@@ -11,6 +12,9 @@ const URL_PATH = "/articles/is-dubai-safe-2026";
 const ABSOLUTE_URL = `https://www.dubaiexpat.co.uk${URL_PATH}`;
 const HERO_IMAGE = "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=1200&h=500&fit=crop&auto=format";
 const PUBLISHED_AT = "2026-04-13";
+// Conflict coverage is live content. Bump this whenever a factual claim changes,
+// so dateModified reflects reality rather than the original publish date.
+const UPDATED_AT = "2026-08-26";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,
@@ -36,7 +40,7 @@ export default function IsDubaiSafe2026() {
         description={DESCRIPTION}
         url={ABSOLUTE_URL}
         datePublished={PUBLISHED_AT}
-        dateModified={PUBLISHED_AT}
+        dateModified={UPDATED_AT}
         breadcrumbs={breadcrumbs}
       />
       <div className="bg-white px-4 sm:px-8">
@@ -72,7 +76,7 @@ export default function IsDubaiSafe2026() {
                 Is Dubai Safe for Expats in 2026? What UK Citizens Need to Know
               </h1>
               <p className="mt-4 max-w-2xl text-slate-200 leading-relaxed text-base sm:text-lg">
-                The Iran&ndash;UAE conflict has changed the conversation about relocating to Dubai. Here&rsquo;s an honest, up-to-date assessment of what life is really like on the ground &mdash; and what the FCDO is telling British nationals.
+                Six months on from the strikes, the UAE has largely restored normal life: airspace reopened in May, the FCDO advisory was lifted in June, and expat families are returning. Here&rsquo;s an up-to-date assessment of conditions on the ground and what the FCDO currently tells British nationals.
               </p>
             </div>
           </div>
@@ -86,13 +90,16 @@ export default function IsDubaiSafe2026() {
             </h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                Since late February 2026, Iran has launched a series of ballistic missile and drone strikes against targets across the UAE and other Gulf states, in retaliation for Israeli&ndash;American military operations. The conflict has brought a reality that many expats never expected: air-defence interceptions audible at night, temporary airport disruptions, and a much-heightened security posture across Dubai.
+                Between late February and the spring of 2026 there were ballistic missile and drone strikes on targets in the UAE and other Gulf states as part of the wider regional conflict. That period is now behind the country. Following the US&ndash;Iran interim agreement, Dubai&rsquo;s airspace reopened on 2 May 2026 and the FCDO lifted its advisory on 18 June. Emirates has since restored 96% of its global network &mdash; 138 destinations across 73 countries and more than 1,300 flights a week &mdash; and schools, offices, retail and construction are operating normally.
               </p>
               <p>
-                While the vast majority of incoming missiles and drones have been intercepted by UAE and allied air-defence systems, several high-profile sites in Dubai were struck in the early days of the conflict, including luxury hotels on The Palm. The UAE government has maintained that civilian safety remains its top priority and has invested heavily in expanded defence capabilities.
+                The response from the authorities has been substantial and fast. The UAE invested heavily in expanded air-defence capability, which intercepted the overwhelming majority of what was fired. Dubai&rsquo;s Executive Council then approved a Dh1 billion package of short-term economic measures running from April to September 2026, including a three-month full postponement of the Tourism Dirham and hotel sales fees to help businesses through the quiet period. Emirates introduced a travel cover product in June that includes conflict-related protection and disruption support, and Etihad and Abu Dhabi&rsquo;s Department of Culture and Tourism added complimentary medical travel insurance for eligible international visitors. Dubai is now working towards a target of 19.6 million annual visitors.
               </p>
               <p>
-                For British nationals specifically, the situation carries additional complexities. Roughly a quarter of a million UK citizens live in the UAE, making them the largest European expat community in the country. Many have built lives, businesses, and families there over years or decades.
+                The single heaviest night was 28 February 2026, when the UAE said 137 missiles and 209 drones were fired at its territory. Most were intercepted. The damage that reached the ground in Dubai came largely from debris rather than direct hits: falling wreckage started a fire near the Fairmont The Palm, where four people were treated and no deaths were reported, and a minor fire at the base of the Burj Al Arab. Dubai International and the Jebel Ali seaport also sustained damage. The UAE government has maintained that civilian safety remains its top priority and has invested heavily in expanded defence capabilities.
+              </p>
+              <p>
+                For British nationals specifically, the situation carries additional complexities. Before the conflict there were roughly 240,000 Britons in the UAE including tourists, the largest European community in the country. Many have built lives, businesses, and families there over years or decades.
               </p>
             </div>
           </div>
@@ -106,24 +113,25 @@ export default function IsDubaiSafe2026() {
             </h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                The Foreign, Commonwealth &amp; Development Office (FCDO) advised against all but essential travel to the United Arab Emirates from 28 February 2026, and lifted that advisory on 18 June 2026 following the memorandum of understanding signed the previous day. As of 20 August 2026 the FCDO does not advise against travel to the UAE. It does still warn of regional tensions, possible flight cancellations and periodic airspace closures, and notes that attacks could resume at short notice &mdash; so check gov.uk for the current position before you travel.
+                The Foreign, Commonwealth &amp; Development Office (FCDO) advised against all but essential travel to the United Arab Emirates from 28 February 2026, and lifted that advisory on 18 June 2026 following the memorandum of understanding signed the previous day. As of 26 August 2026 the FCDO does not advise against travel to the UAE. It does still warn of regional tensions, possible flight cancellations and periodic airspace closures, and notes that attacks could resume at short notice &mdash; so check gov.uk for the current position before you travel.
               </p>
               <p>
-                The FCDO has also temporarily withdrawn dependants of British Embassy staff from the UAE as a precautionary measure, though the embassies in Abu Dhabi and Dubai continue to operate. British nationals in-country are encouraged to register their presence with the FCDO to receive direct updates.
+                The British Embassy in Abu Dhabi and the Consulate-General in Dubai continue to operate normally. The FCDO no longer runs a registration scheme for British nationals abroad &mdash; the way to receive direct updates is to subscribe to travel advice email alerts for the UAE on gov.uk.
               </p>
               <div
                 className="rounded-xl p-6 my-6"
                 style={{ backgroundColor: "#FDF8ED", borderLeft: "4px solid #C9A84C" }}
               >
                 <p className="text-sm font-semibold mb-2" style={{ color: "#0A1628" }}>
-                  Key FCDO guidance for British nationals in the UAE:
+                  What the FCDO currently asks British nationals in the region to do:
                 </p>
                 <ul className="list-disc pl-5 space-y-2 text-gray-600 text-sm">
-                  <li>Stay away from areas around security or military facilities, and US or Israeli-linked locations</li>
-                  <li>Limit movements to essential journeys only</li>
-                  <li>When travel is unavoidable, aim to move during daylight hours and avoid crowded venues</li>
-                  <li>Register your presence with the FCDO to receive updates</li>
-                  <li>Flights to the UK are gradually resuming &mdash; check availability regularly</li>
+                  <li>Be prepared for possible flight cancellations, periodic airspace closures and travel disruption</li>
+                  <li>Follow the advice of local authorities, and monitor local and international media &mdash; airports and airspace can close at short notice</li>
+                  <li>Stay away from areas around security or military facilities</li>
+                  <li>Keep your departure plans under review and your travel documents up to date</li>
+                  <li>Sign up to FCDO travel advice email alerts for the UAE</li>
+                  <li>If advised to take shelter, stay indoors &mdash; an interior stairwell or a room with few external walls offers the most protection. Do not approach or touch debris or unusual objects</li>
                 </ul>
               </div>
               <p>
@@ -151,13 +159,13 @@ export default function IsDubaiSafe2026() {
             </h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                One aspect of the situation that has caught many British expats off guard is the UAE&rsquo;s strict enforcement of cybercrime laws during the conflict. Dozens of foreign nationals, including a significant number of Britons, have been detained for filming or sharing footage of drone and missile interceptions on social media.
+                UAE law places clear restrictions on photographing and publishing material relating to military activity, and those provisions have been actively applied during the conflict. In March 2026, 21 people were charged in connection with filming and sharing footage of the missile and drone attacks, among them a British tourist.
               </p>
               <p>
-                Under UAE law, sharing images or videos related to military operations &mdash; even of something you witnessed from your balcony &mdash; can result in serious criminal charges. Reports indicate that some detainees have had their passports confiscated and face potential prison sentences.
+                The restriction is broader than many arrivals expect. It covers images or video of military activity witnessed in passing &mdash; including from a balcony &mdash; and extends to resharing or commenting on someone else&rsquo;s post. The penalty starts at two years&rsquo; imprisonment and a fine of AED 200,000 (roughly &pound;40,000).
               </p>
               <p>
-                This is an important reminder that the UAE&rsquo;s legal system operates differently from the UK&rsquo;s. Laws around public expression, social media content, and criticism of the state are significantly stricter. British nationals should be extremely cautious about what they photograph, film, or post during the current period.
+                The practical rule is straightforward: do not photograph, film or post images of military activity, interceptions or their aftermath, and do not reshare posts that do. Where you are unsure whether something falls within the restriction, the safe assumption is that it does, and local legal advice is readily available.
               </p>
             </div>
           </div>
@@ -180,7 +188,7 @@ export default function IsDubaiSafe2026() {
                 The tech and business community has been particularly vocal about continuity. Many remote workers and entrepreneurs report that their professional lives have been largely unaffected. Dubai&rsquo;s internet infrastructure, coworking spaces, and business districts remain operational.
               </p>
               <p>
-                However, significant numbers of Western nationals have left or are considering leaving. Reports suggest over 115,000 British nationals have returned to the UK since the conflict began, though many others have chosen to stay, citing strong community ties, financial commitments, and confidence in the UAE&rsquo;s defence systems.
+                However, significant numbers of Western nationals have left or are considering leaving. Around 30,000 British residents are estimated to have left the UAE since the strikes began &mdash; roughly one in eight, or 10 to 15 per cent of the long-term British population. A larger figure of about 100,000 has been reported for British nationals flown back from the Middle East as a whole, but that covers the entire region and includes tourists and transit passengers, not UAE residents. Immigration lawyers describe many of these departures as temporary rather than permanent, with families moving for a school term or until the situation settles and intending to return. Many others have chosen to stay, citing strong community ties, financial commitments, and confidence in the UAE&rsquo;s defence systems.
               </p>
             </div>
           </div>
@@ -214,7 +222,7 @@ export default function IsDubaiSafe2026() {
             </h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                There&rsquo;s no single answer. Dubai before the Iran strikes and Dubai now are different propositions, and it would be irresponsible to pretend otherwise.
+                On the evidence available in August 2026, yes &mdash; with the ordinary caveat that no destination carries a guarantee. The strikes were met with an air-defence response that intercepted the overwhelming majority of what was fired, the damage that did occur was limited and caused mostly by falling debris, and the authorities moved quickly to restore normal operations. Airspace reopened on 2 May, the FCDO lifted its advisory on 18 June, and other governments have eased their advisories since.
               </p>
               <p>
                 If you&rsquo;re already in Dubai with an established life, strong community, and employer support, many expats are choosing to stay and report feeling relatively safe day to day. The UAE&rsquo;s air-defence systems have proven effective, and the government has made civilian protection a visible priority.
@@ -271,6 +279,20 @@ export default function IsDubaiSafe2026() {
           </div>
         </section>
 
+        {/* Email capture — decision-stage reader, relocation magnet */}
+        <section className="px-4 pb-12 md:px-8">
+          <div className="max-w-4xl mx-auto">
+            <EmailCapture
+              headline="Get the UK to Dubai Relocation Checklist — free"
+              subheading="Every step before you leave and in your first 90 days: visas, HMRC, banking, removals, schools. The admin most people find out about too late."
+              cta="Send me the checklist →"
+              successMessage="✓ Check your inbox — your checklist is on its way."
+              firstMagnet="dx-relocation-checklist"
+              guideTopic="relocation"
+            />
+          </div>
+        </section>
+
         {/* Related Content */}
         <section className="px-4 py-12 md:px-8 bg-gray-50">
           <div className="max-w-4xl mx-auto">
@@ -314,7 +336,7 @@ export default function IsDubaiSafe2026() {
         <section className="px-4 py-8 md:px-8 border-t border-gray-200">
           <div className="max-w-4xl mx-auto">
             <p className="text-xs text-gray-500 leading-relaxed">
-              This article reflects the situation as of 4 April 2026 and is provided for informational purposes only. It does not constitute travel advice. The security situation in the UAE is evolving rapidly &mdash; always check the latest{" "}
+              This article reflects the situation as of 26 August 2026 and is provided for informational purposes only. It does not constitute travel advice. The security situation in the UAE is evolving rapidly &mdash; always check the latest{" "}
               <a
                 href="https://www.gov.uk/foreign-travel-advice/united-arab-emirates"
                 target="_blank"

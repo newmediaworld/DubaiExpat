@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import SchemaJsonLd from "@/components/SchemaJsonLd";
 import { pageMetadata } from "@/lib/metadata";
+import EmailCapture from "@/components/EmailCapture";
 
 const TITLE = "Should I Still Move to Dubai? Honest 2026 Assessment";
 const DESCRIPTION =
@@ -11,6 +12,9 @@ const URL_PATH = "/articles/should-i-still-move-to-dubai";
 const ABSOLUTE_URL = `https://www.dubaiexpat.co.uk${URL_PATH}`;
 const HERO_IMAGE = "https://images.unsplash.com/photo-1543579596-2c11997c7706?w=1200&h=500&fit=crop&auto=format";
 const PUBLISHED_AT = "2026-04-13";
+// Conflict coverage is live content. Bump this whenever a factual claim changes,
+// so dateModified reflects reality rather than the original publish date.
+const UPDATED_AT = "2026-08-26";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,
@@ -36,7 +40,7 @@ export default function ShouldIStillMoveToDubai() {
         description={DESCRIPTION}
         url={ABSOLUTE_URL}
         datePublished={PUBLISHED_AT}
-        dateModified={PUBLISHED_AT}
+        dateModified={UPDATED_AT}
         breadcrumbs={breadcrumbs}
       />
       <div className="bg-white px-4 sm:px-8">
@@ -69,7 +73,7 @@ export default function ShouldIStillMoveToDubai() {
                 Decision Guide
               </div>
               <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl leading-tight max-w-3xl">
-                Should I Still Move to Dubai? An Honest Assessment (April 2026)
+                Should I Still Move to Dubai? An Honest Assessment
               </h1>
               <p className="mt-4 max-w-2xl text-slate-200 leading-relaxed text-base sm:text-lg">
                 Dubai&rsquo;s appeal hasn&rsquo;t disappeared. But the calculation has changed. Here&rsquo;s a clear-eyed look at whether relocating in 2026 still makes sense &mdash; and what you should consider before making the decision.
@@ -109,7 +113,7 @@ export default function ShouldIStillMoveToDubai() {
                 If you don&rsquo;t have an urgent reason to be in Dubai right now, waiting is the pragmatic choice. Here&rsquo;s why.
               </p>
               <p>
-                <strong className="text-[#0A1628]">The FCDO advisory mattered practically, not just symbolically &mdash; and it has since been lifted.</strong> While it was in force, from 28 February to 18 June 2026, it triggered real consequences: most UK travel insurance policies became void for new trips to the destination, employer duty-of-care obligations became more complex, and some mortgage and financial products carry clauses tied to residency in advisory-flagged countries. As of 20 August 2026 the FCDO does not advise against travel to the UAE, so those gaps have closed by default &mdash; but check your own policy wording rather than assuming, because insurers set conflict-zone exclusions on their own terms.
+                <strong className="text-[#0A1628]">The FCDO advisory mattered practically, not just symbolically &mdash; and it has since been lifted.</strong> While it was in force, from 28 February to 18 June 2026, it triggered real consequences: most UK travel insurance policies became void for new trips to the destination, employer duty-of-care obligations became more complex, and some mortgage and financial products carry clauses tied to residency in advisory-flagged countries. As of 26 August 2026 the FCDO does not advise against travel to the UAE, so those gaps have closed by default &mdash; but check your own policy wording rather than assuming, because insurers set conflict-zone exclusions on their own terms.
               </p>
               <p>
                 <strong className="text-[#0A1628]">The security situation is unpredictable.</strong> While the UAE&rsquo;s air-defence systems have been largely effective, the conflict is ongoing. Nobody can guarantee the trajectory &mdash; whether it escalates, de-escalates, or settles into a prolonged low-level pattern. Making a major life decision with this much uncertainty in play is a risk that most financial advisers would counsel against.
@@ -181,10 +185,10 @@ export default function ShouldIStillMoveToDubai() {
                 The conflict has surfaced some realities about life in the UAE that are worth factoring into your planning, regardless of when you move.
               </p>
               <p>
-                <strong className="text-[#0A1628]">The legal environment is different from the UK.</strong> The arrest of foreign nationals for filming military activity has highlighted the strict nature of UAE cybercrime and public order laws. The rules around social media expression, criticism of the state, and personal conduct are significantly more restrictive than what British citizens are accustomed to. Understanding these laws isn&rsquo;t optional &mdash; it&rsquo;s essential.
+                <strong className="text-[#0A1628]">The legal framework differs from the UK&rsquo;s.</strong> UAE law sets out its own rules on publishing images, social media content and public conduct, and the cybercrime charges brought during the conflict are a reminder that those rules are enforced. Familiarising yourself with them before you move is a practical necessity rather than an optional extra, and it is worth taking local advice on anything you are unsure about.
               </p>
               <p>
-                <strong className="text-[#0A1628]">Exit freedom isn&rsquo;t guaranteed.</strong> Reports of British nationals unable to leave the UAE due to travel bans linked to civil disputes have been a wake-up call. In the UK, a business disagreement is unlikely to prevent you from leaving the country. In the UAE, it can. This is a structural feature of the legal system, not a temporary side effect of the conflict.
+                <strong className="text-[#0A1628]">Travel bans can arise from civil matters.</strong> Under UAE law an unresolved debt or civil claim can give rise to a travel ban preventing departure until the matter is settled &mdash; a mechanism with no direct UK equivalent. This is a standing feature of the legal framework rather than anything connected to the conflict, and it is worth understanding before you take on credit, sign a lease, or enter a business commitment.
               </p>
               <p>
                 <strong className="text-[#0A1628]">Geopolitical risk is now a real consideration.</strong> Before 2026, the Gulf was widely perceived as geopolitically stable. That perception has been permanently revised. Future expats should think about Dubai the way they&rsquo;d think about any global city: with an awareness that external events can affect daily life, and with contingency plans in place.
@@ -212,7 +216,7 @@ export default function ShouldIStillMoveToDubai() {
                 </p>
                 <ul className="list-disc pl-5 space-y-3 text-gray-600 text-sm">
                   <li>
-                    <strong>Is there an FCDO advisory against travel to the UAE?</strong> As of 20 August 2026 there is not &mdash; the February&ndash;June 2026 advisory was lifted on 18 June. Check gov.uk for the current position before you commit, and confirm cover with your insurer separately, since conflict-zone exclusions are set by insurers rather than by the FCDO.
+                    <strong>Is there an FCDO advisory against travel to the UAE?</strong> As of 26 August 2026 there is not &mdash; the February&ndash;June 2026 advisory was lifted on 18 June. Check gov.uk for the current position before you commit, and confirm cover with your insurer separately, since conflict-zone exclusions are set by insurers rather than by the FCDO.
                   </li>
                   <li>
                     <strong>Do you have employer support?</strong> Relocating with a company that provides security briefings, insurance, and contingency plans is fundamentally different from going independently.
@@ -314,11 +318,25 @@ export default function ShouldIStillMoveToDubai() {
           </div>
         </section>
 
+        {/* Email capture — decision-stage reader, relocation magnet */}
+        <section className="px-4 pb-12 md:px-8">
+          <div className="max-w-4xl mx-auto">
+            <EmailCapture
+              headline="Get the UK to Dubai Relocation Checklist — free"
+              subheading="Every step before you leave and in your first 90 days: visas, HMRC, banking, removals, schools. The admin most people find out about too late."
+              cta="Send me the checklist →"
+              successMessage="✓ Check your inbox — your checklist is on its way."
+              firstMagnet="dx-relocation-checklist"
+              guideTopic="relocation"
+            />
+          </div>
+        </section>
+
         {/* Disclaimer */}
         <section className="px-4 py-8 md:px-8 border-t border-gray-200">
           <div className="max-w-4xl mx-auto">
             <p className="text-xs text-gray-500 leading-relaxed">
-              This article reflects the situation as of 4 April 2026 and is provided for informational purposes only. It does not constitute financial, legal, or travel advice. The security and economic situation in the UAE is evolving &mdash; always check the latest{" "}
+              This article reflects the situation as of 26 August 2026 and is provided for informational purposes only. It does not constitute financial, legal, or travel advice. The security and economic situation in the UAE is evolving &mdash; always check the latest{" "}
               <a
                 href="https://www.gov.uk/foreign-travel-advice/united-arab-emirates"
                 target="_blank"

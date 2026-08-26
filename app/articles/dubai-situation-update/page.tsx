@@ -3,14 +3,18 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import SchemaJsonLd from "@/components/SchemaJsonLd";
 import { pageMetadata } from "@/lib/metadata";
+import EmailCapture from "@/components/EmailCapture";
 
-const TITLE = "Dubai Situation Update: What British Expats Are Saying (April 2026)";
+const TITLE = "Dubai Situation Update: What British Expats Are Saying";
 const DESCRIPTION =
   "Hear from the British expat community in Dubai — who's staying, who's leaving, and what daily life actually looks like during the Iran-UAE conflict.";
 const URL_PATH = "/articles/dubai-situation-update";
 const ABSOLUTE_URL = `https://www.dubaiexpat.co.uk${URL_PATH}`;
 const HERO_IMAGE = "https://images.unsplash.com/photo-1634007626524-f47fa37810a7?w=1200&h=500&fit=crop&auto=format";
 const PUBLISHED_AT = "2026-04-13";
+// Conflict coverage is live content. Bump this whenever a factual claim changes,
+// so dateModified reflects reality rather than the original publish date.
+const UPDATED_AT = "2026-08-26";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,
@@ -36,7 +40,7 @@ export default function DubaiSituationUpdate() {
         description={DESCRIPTION}
         url={ABSOLUTE_URL}
         datePublished={PUBLISHED_AT}
-        dateModified={PUBLISHED_AT}
+        dateModified={UPDATED_AT}
         breadcrumbs={breadcrumbs}
       />
       <div className="bg-white px-4 sm:px-8">
@@ -72,7 +76,7 @@ export default function DubaiSituationUpdate() {
                 Dubai Situation Update: What British Expats Are Saying
               </h1>
               <p className="mt-4 max-w-2xl text-slate-200 leading-relaxed text-base sm:text-lg">
-                The headlines tell one story. The people living it tell another. Here&rsquo;s what&rsquo;s actually happening in the British expat community in Dubai right now.
+                The families who left are coming back. Schools are re-enrolling, offices are filling, and daily life has largely resumed. Here&rsquo;s what is actually happening in the British expat community in Dubai right now.
               </p>
             </div>
           </div>
@@ -86,10 +90,10 @@ export default function DubaiSituationUpdate() {
             </h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                The British expat community in Dubai &mdash; roughly 250,000 strong before the conflict &mdash; is having a conversation it never expected to have. Since Iranian strikes on the UAE began in late February 2026, the question isn&rsquo;t just &ldquo;is it safe?&rdquo; but something more personal: &ldquo;is this still where I want to be?&rdquo;
+                The British expat community in Dubai &mdash; roughly 240,000 strong before the conflict, including tourists &mdash; is having a conversation it never expected to have. Since Iranian strikes on the UAE began in late February 2026, the question isn&rsquo;t just &ldquo;is it safe?&rdquo; but something more personal: &ldquo;is this still where I want to be?&rdquo;
               </p>
               <p>
-                The answers are as varied as the community itself. Reports indicate that more than 115,000 British nationals have returned to the UK since the conflict started. But that also means a substantial number have chosen to stay &mdash; and their reasons reveal a lot about what Dubai means to the people who&rsquo;ve built lives there.
+                People did leave. Around 30,000 British residents are estimated to have gone during the conflict &mdash; roughly one in eight of the long-term British population. But the majority stayed, most of those departures were always intended as temporary, and since the US&ndash;Iran interim agreement they have been coming back: families re-enrolling children in school, returning to in-person work, and picking up the routines they paused. One returning parent described it as &ldquo;like a big exhale&rdquo;. It is still too early to say how many of the 30,000 left permanently, but the direction of travel has clearly reversed.
               </p>
             </div>
           </div>
@@ -146,7 +150,7 @@ export default function DubaiSituationUpdate() {
             </h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                If you&rsquo;re reading this from the UK trying to work out what it&rsquo;s like on the ground, here&rsquo;s the honest picture: Dubai in April 2026 is not a warzone. It&rsquo;s not a ghost town. It is a city that is functioning normally in most respects, but with an undercurrent of vigilance that wasn&rsquo;t there a year ago.
+                If you&rsquo;re reading this from the UK trying to work out what it&rsquo;s like on the ground, here&rsquo;s the honest picture: Dubai is running normally again. The malls and restaurants are busy, the Metro is on schedule, the beaches are back, construction crews are on site, schools have reopened and businesses are welcoming clients. Airspace reopened in May and the airlines have rebuilt their schedules. What remains is a sensible awareness of a region that has had a difficult year &mdash; the kind of practical vigilance any well-run city keeps after a disruption, rather than anything that shapes daily life.
               </p>
               <p>
                 Restaurants and malls are open, though footfall has noticeably decreased in tourist-heavy areas like The Walk at JBR and Downtown. Brunches still happen. The gym is still busy at 6am. Kids still go to birthday parties. But people are paying more attention to the news. Conversations that used to be about property prices and school admissions now occasionally turn to flight availability and FCDO updates.
@@ -201,6 +205,20 @@ export default function DubaiSituationUpdate() {
           </div>
         </section>
 
+        {/* Email capture — decision-stage reader, relocation magnet */}
+        <section className="px-4 pb-12 md:px-8">
+          <div className="max-w-4xl mx-auto">
+            <EmailCapture
+              headline="Get the UK to Dubai Relocation Checklist — free"
+              subheading="Every step before you leave and in your first 90 days: visas, HMRC, banking, removals, schools. The admin most people find out about too late."
+              cta="Send me the checklist →"
+              successMessage="✓ Check your inbox — your checklist is on its way."
+              firstMagnet="dx-relocation-checklist"
+              guideTopic="relocation"
+            />
+          </div>
+        </section>
+
         {/* Related Content */}
         <section className="px-4 py-12 md:px-8">
           <div className="max-w-4xl mx-auto">
@@ -244,7 +262,7 @@ export default function DubaiSituationUpdate() {
         <section className="px-4 py-8 md:px-8 border-t border-gray-200">
           <div className="max-w-4xl mx-auto">
             <p className="text-xs text-gray-500 leading-relaxed">
-              This article reflects the situation as of 4 April 2026 and is based on publicly available reporting and community observations. It is provided for informational purposes only and does not constitute travel advice. Always check the latest{" "}
+              This article reflects the situation as of 26 August 2026 and is based on publicly available reporting and community observations. It is provided for informational purposes only and does not constitute travel advice. Always check the latest{" "}
               <a
                 href="https://www.gov.uk/foreign-travel-advice/united-arab-emirates"
                 target="_blank"
