@@ -17,6 +17,13 @@ interface ArticleFrontmatter {
   subtitle?: string;
   author?: string;
   date?: string;
+  /**
+   * Optional ISO date of the last substantive correction. When absent we fall
+   * back to `date`. Without this, a corrected article keeps advertising its
+   * original publish date as `dateModified` and the correction is invisible
+   * to search.
+   */
+  updated?: string;
 }
 
 interface ArticleLayoutProps {
@@ -25,7 +32,8 @@ interface ArticleLayoutProps {
 }
 
 export default function ArticleLayout({ frontmatter, children }: ArticleLayoutProps) {
-  const { title, hero_image, category, subtitle, meta_description, slug, date } = frontmatter;
+  const { title, hero_image, category, subtitle, meta_description, slug, date, updated } =
+    frontmatter;
 
   const canonicalUrl = slug
     ? `https://www.dubaiexpat.co.uk/articles/${slug}`
@@ -44,7 +52,7 @@ export default function ArticleLayout({ frontmatter, children }: ArticleLayoutPr
         description={meta_description || subtitle || title}
         url={canonicalUrl}
         datePublished={date}
-        dateModified={date}
+        dateModified={updated || date}
         breadcrumbs={breadcrumbs}
       />
       <div className="bg-white px-4 sm:px-8">
