@@ -37,7 +37,7 @@ export default function AffiliateDisclosure() {
           <h1 className="text-3xl font-bold tracking-tight">
             Affiliate Disclosure
           </h1>
-          <p className="text-sm text-slate-500">Last updated: 4 April 2026</p>
+          <p className="text-sm text-slate-500">Last updated: 5 September 2026</p>
 
           <h2>How We Earn Revenue</h2>
           <p>
@@ -63,20 +63,21 @@ export default function AffiliateDisclosure() {
             We do not recommend a product or service solely because it pays a commission.
           </p>
 
-          <h2>Current or Potential Affiliate Partners</h2>
-          <p>We may work with affiliate programmes and partners including:</p>
+          <h2>Our Affiliate Partners</h2>
+          <p>These are the affiliate programmes we currently participate in, and the links on this site that carry them:</p>
           <ul>
-            <li><strong>Wise</strong> — international money transfers</li>
-            <li><strong>SafetyWing</strong> — expat health insurance</li>
+            <li><strong>Amazon Associates (UK)</strong> — general retail</li>
+            <li><strong>GetYourGuide</strong> (via Awin) — tours and activities</li>
+            <li><strong>Trip.com</strong> (via Optimise Media) — flights and hotels</li>
+            <li><strong>SafetyWing</strong> — expat and travel medical insurance</li>
             <li><strong>NordVPN</strong> — VPN services</li>
-            <li><strong>ExpressVPN</strong> — VPN services</li>
-            <li><strong>Booking.com</strong> — temporary accommodation</li>
-            <li>Relocation service providers</li>
-            <li>Insurance providers</li>
-            <li>Other travel, finance, accommodation, or expat-related services</li>
+            <li><strong>Incogni</strong> — personal data removal</li>
           </ul>
           <p>
-            This list may change from time to time as partnerships are added, removed, or updated. Not every affiliate relationship may be listed individually.
+            As an Amazon Associate we earn from qualifying purchases.
+          </p>
+          <p>
+            Companies named elsewhere on this site are not necessarily affiliate partners. Where we recommend a provider we have no commercial relationship with — Wise, for example, in our money transfer guide — we say so in the article itself. This list may change as partnerships are added, removed, or updated.
           </p>
 
           <h2>Contact Us</h2>
