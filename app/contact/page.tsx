@@ -78,6 +78,30 @@ export default function ContactPage() {
             </p>
           </div>
 
+          <h2>Company Details</h2>
+
+          <div className="my-8 rounded-lg border border-slate-200 bg-white px-4 py-4">
+            <p className="m-0 text-sm text-slate-700">
+              Dubai Expat is published by <strong>NewMediaWorld Pte. Ltd.</strong>{' '}
+              (Singapore UEN 202615263H).
+            </p>
+            <p className="m-0 mt-2 text-sm text-slate-700">
+              7A Chancery Hill Lane, Singapore 309629
+            </p>
+            <p className="m-0 mt-2 text-sm text-slate-700">
+              Telephone:{' '}
+              <a href="tel:+6588606165" className="text-[#C9A84C] hover:underline">
+                +65 8860 6165
+              </a>
+            </p>
+            <p className="m-0 mt-2 text-sm text-slate-700">
+              Email:{' '}
+              <a href="mailto:partnerships@dubaiexpat.co.uk" className="text-[#C9A84C] hover:underline">
+                partnerships@dubaiexpat.co.uk
+              </a>
+            </p>
+          </div>
+
           <h2>Send us a Message</h2>
 
           {isSubmitted ? (
