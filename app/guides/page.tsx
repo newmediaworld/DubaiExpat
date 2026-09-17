@@ -62,7 +62,7 @@ const CLUSTERS: { name: string; guides: Guide[] }[] = [
         cluster: "Pets",
         title: "Pet Relocation UK to Dubai",
         blurb:
-          "UAE import permit, rabies titre test, approved vets, £2–4k costs and the 4-month timeline for moving a dog or cat to the UAE.",
+          "UAE import permit, the vaccinations actually required, breed restrictions, approved vets and what it costs to move a dog or cat to the UAE.",
       },
     ],
   },

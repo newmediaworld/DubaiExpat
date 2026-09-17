@@ -6,9 +6,12 @@ import RelatedGuides from "@/components/RelatedGuides";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = pageMetadata({
   title: "Cost to Fly a Dog to Dubai from the UK 2026: £800-£2,500",
-  description: "What it costs to fly a dog or cat from the UK to Dubai in 2026: £800-£2,500 all-in, the MOCCAE import permit, rabies titre test and 4-month timeline.",
+  description: "What it costs to fly a dog or cat from the UK to Dubai in 2026: £800-£2,500 all-in, the MOCCAE import permit, the vaccinations required and the real timeline.",
   path: "/guides/pets",
 });
+// Bumped whenever this page is materially corrected, so the correction carries a
+// freshness signal rather than advertising the original publish date.
+const UPDATED_AT = "2026-09-17";
 const SCHEMA_URL = "https://www.dubaiexpat.co.uk/guides/pets";
 const BREADCRUMBS = [
   { name: "Home", url: "https://www.dubaiexpat.co.uk/" },
@@ -35,7 +38,7 @@ const PARTNERS = [
     name: "Happy Tails Travel",
     url: "https://www.happytailstravel.co.uk",
     description:
-      "Specialist in Middle East pet relocation. Offers a fully managed service covering the rabies titre test coordination, import permit, health certificate and in-cabin or cargo travel arrangements.",
+      "Specialist in Middle East pet relocation. Offers a fully managed service covering the vaccination schedule, import permit, health certificate and cargo travel arrangements.",
     badge: "Recommended",
   },
   {
@@ -60,8 +63,9 @@ export default function PetsGuidePage() {
       <SchemaJsonLd
         type="Article"
         title="Cost to Fly a Dog to Dubai from the UK 2026: £800-£2,500"
-        description="What it costs to fly a dog or cat from the UK to Dubai in 2026: £800-£2,500 all-in, the MOCCAE import permit, rabies titre test and 4-month timeline."
+        description="What it costs to fly a dog or cat from the UK to Dubai in 2026: £800-£2,500 all-in, the MOCCAE import permit, the vaccinations required and the real timeline."
         url={SCHEMA_URL}
+        dateModified={UPDATED_AT}
         breadcrumbs={BREADCRUMBS}
       />
       <div className="mx-auto flex min-h-screen max-w-4xl flex-col px-4 pb-12 pt-6 sm:px-6 lg:px-8 lg:pt-8">
@@ -98,11 +102,11 @@ export default function PetsGuidePage() {
                 Bringing Your Pet to Dubai from the UK
               </h1>
               <p className="mt-4 max-w-2xl text-slate-200 leading-relaxed text-base sm:text-lg">
-                The UAE has strict pet import rules, and the process takes longer than most people expect — often four to six months from start to finish. The good news is that thousands of British expat families do it every year, and with the right preparation, it is completely manageable. This guide covers everything you need to know.
+                The UAE has strict pet import rules, but for a pet travelling from the UK the paperwork is more manageable than most people fear — the binding constraint is usually the airline booking and the vaccination schedule, not a long mandatory waiting period. Allow around six to eight weeks if your pet&apos;s vaccinations are already in order, and longer if they are not. This guide covers what is actually required.
               </p>
               <div className="mt-6 grid grid-cols-3 gap-4 text-center">
                 {[
-                  { label: "Typical Timeline", value: "4–6 months" },
+                  { label: "Typical Timeline", value: "6–8 weeks" },
                   { label: "Approx. Total Cost", value: "£800–£2,500" },
                   { label: "Process Steps", value: "6 key steps" },
                 ].map((stat) => (
@@ -117,9 +121,9 @@ export default function PetsGuidePage() {
 
           {/* Warning box */}
           <section className="rounded-2xl border-l-4 border-[#C9A84C] bg-amber-50 p-6">
-            <h2 className="font-semibold text-[#0A1628]">Start planning early — this takes time</h2>
+            <h2 className="font-semibold text-[#0A1628]">Check the vaccination record first</h2>
             <p className="mt-2 text-sm leading-relaxed text-slate-700">
-              The single biggest mistake UK expats make is leaving pet relocation too late. The rabies titre test alone requires a minimum 30-day wait after vaccination, followed by a further three-month waiting period before your pet can travel. If you are planning to move in six months, you should begin the process now.
+              The UAE does not impose a multi-month waiting period on pets travelling from the UK, and there is no mandatory post-vaccination quarantine. What catches UK families out is the vaccination record itself: the UAE requires more than a rabies jab, the microchip must pre-date the rabies vaccination, and an out-of-date booster resets your timeline. Pull your pet&apos;s vaccination card out and check it against the list below before you book anything.
             </p>
           </section>
 
@@ -131,6 +135,14 @@ export default function PetsGuidePage() {
             <p className="text-slate-600 leading-relaxed">
               The UAE Ministry of Climate Change and Environment (MOCCAE) governs all pet imports. The requirements below apply to dogs and cats travelling from the UK. Other animals have different — often stricter — requirements.
             </p>
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
+              <p className="text-sm font-semibold text-[#0A1628]">
+                No rabies blood test is required from the UK
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                MOCCAE requires a rabies antibody titre test only for pets coming from countries outside its low-risk list. The United Kingdom is on that list, along with Ireland, most of the EU, Australia, New Zealand, Japan, Singapore and Hong Kong. If your pet is travelling from the UK you do not need the blood test, and there is no associated waiting period. If you are moving to Dubai from somewhere else — or your pet will spend time in a non-listed country en route — check the current list before you plan, because the test must be taken at least 21 days after the rabies vaccination and is valid for 12 months.
+              </p>
+            </div>
 
             {[
               {
@@ -143,37 +155,37 @@ export default function PetsGuidePage() {
               {
                 step: "02",
                 title: "Rabies Vaccination",
-                timing: "After microchipping",
+                timing: "After microchipping, from 12 weeks of age",
                 content:
-                  "Your pet must receive a rabies vaccination from a registered UK vet after the microchip is confirmed. Keep the vaccination certificate — the batch number, date and vet details must appear on all subsequent paperwork. If your pet has a current rabies vaccine, check whether it was administered after the microchip was in place.",
+                  "Your pet must receive a rabies vaccination from a registered UK vet after the microchip is confirmed, and no earlier than 12 weeks of age. Keep the vaccination certificate — the batch number, date, manufacturer and vet details must appear on the health certificate. If your pet already has a current rabies vaccine, check it was administered after the microchip was in place; if it was not, the vaccination must be repeated. Allow at least 21 days between the vaccination and departure.",
               },
               {
                 step: "03",
-                title: "Rabies Titre Test (Blood Test)",
-                timing: "Minimum 30 days after rabies vaccination",
+                title: "The Other Required Vaccinations",
+                timing: "Alongside the rabies vaccination",
                 content:
-                  "This is the most important step — and the one that creates the timeline. Your vet must take a blood sample at least 30 days after the rabies vaccination and send it to an EU-approved laboratory (the Animal and Plant Health Agency (APHA) in Weybridge is the standard UK option). The test confirms adequate antibody levels. Results typically take 2–3 weeks.",
+                  "This is the step UK owners most often miss. Rabies alone is not enough. Dogs must also be vaccinated against canine distemper, infectious canine hepatitis, leptospirosis (Icterohaemorrhagiae and Canicola) and canine parvovirus — usually given as a combined DHLP shot. Cats must be vaccinated against feline panleukopenia, feline rhinotracheitis and feline calicivirus, again normally a single combined vaccination. All of these must appear on the official health certificate.",
               },
               {
                 step: "04",
-                title: "Three-Month Wait",
-                timing: "After titre test result",
+                title: "Parasite Treatment",
+                timing: "Within 14 days of travel",
                 content:
-                  "Once you have a passing titre test result, you must wait a further three months before your pet can enter the UAE. This wait cannot be shortened. Use this time to apply for the UAE import permit and book your specialist relocation company.",
+                  "Your pet must receive treatment for internal and external parasites within the 14 days before export, administered and documented by a registered vet. This is a certified requirement on the UAE health certificate, not a recommendation — an undocumented treatment will hold up the paperwork.",
               },
               {
                 step: "05",
                 title: "UAE Import Permit (MOCCAE)",
-                timing: "During the three-month wait",
+                timing: "Before travel",
                 content:
-                  "You must obtain an import permit from MOCCAE before your pet arrives in Dubai. This is applied for online through the MOCCAE portal. You will need your pet's microchip number, vaccination records, titre test result, and your UAE visa details. The permit costs approximately AED 200 (around £43) and takes 5–10 working days. Some breeds of dog require additional documentation — see breed restrictions below.",
+                  "You must obtain an import permit from the Ministry of Climate Change and Environment (MOCCAE) before your pet arrives in Dubai. This is applied for online through the MOCCAE portal. You will need your pet's microchip number, vaccination records and your UAE visa details. The permit costs approximately AED 200 (around £43). Apply close to your travel date rather than months ahead — the permit is issued with a short validity window and must still be valid on the day your pet lands. If you are arranging the move yourself rather than through an agent, you are limited to two pets per person. Some breeds of dog cannot be imported at all — see breed restrictions below.",
               },
               {
                 step: "06",
-                title: "Health Certificate",
-                timing: "Within 10 days of travel",
+                title: "Official Health Certificate",
+                timing: "Immediately before travel",
                 content:
-                  "In the final 10 days before travel, your vet must issue an official health certificate confirming your pet is fit to fly, has all required vaccinations, and matches the microchip details. This certificate must be endorsed by the Animal and Plant Health Agency (APHA). This is time-sensitive — it cannot be issued more than 10 days before departure.",
+                  "Your pet needs an official government health certificate issued by a vet and endorsed by the Animal and Plant Health Agency (APHA), confirming the vaccinations above, the parasite treatment, and that the animal was examined and showed no sign of disease in the 24 hours before shipping. Every document presented on arrival must be an original — photocopies are not accepted. Your vet and APHA will confirm the exact issuing window, which is short.",
               },
             ].map((item) => (
               <div
@@ -212,7 +224,8 @@ export default function PetsGuidePage() {
                   {[
                     ["Microchip (if not already done)", "£20–£40"],
                     ["Rabies vaccination", "£40–£80"],
-                    ["Rabies titre test (APHA lab fee)", "£120–£180"],
+                    ["DHLP / feline combined vaccination", "Ask your vet"],
+                    ["Parasite treatment (internal & external)", "Ask your vet"],
                     ["APHA certificate endorsement", "£30"],
                     ["MOCCAE import permit", "~£43 (AED 200)"],
                     ["Health certificate (vet fee)", "£60–£120"],
@@ -237,10 +250,10 @@ export default function PetsGuidePage() {
           <section className="rounded-2xl border-l-4 border-red-400 bg-red-50 p-6 space-y-3">
             <h2 className="text-xl font-bold text-[#0A1628]">Breed Restrictions: Dogs</h2>
             <p className="text-sm leading-relaxed text-slate-700">
-              The UAE prohibits the import of certain dog breeds. The following are banned or heavily restricted and may be refused entry regardless of documentation:
+              The UAE prohibits the import of certain dog breeds. The following are banned and will be refused entry regardless of documentation, as will any crossbreed or hybrid of them:
             </p>
             <ul className="text-sm text-slate-700 space-y-1">
-              {["Pit Bull Terrier", "American Staffordshire Terrier", "Staffordshire Bull Terrier", "Rottweiler", "Dobermann Pinscher", "Mastiff breeds (including Boerboel, Cane Corso)", "Wolf hybrids"].map((breed) => (
+              {["All Pit Bull Terriers", "Staffordshire Bull Terriers (English and American)", "American Bullies", "All Mastiff breeds", "Japanese Tosa Inu", "Wolf / dog hybrids"].map((breed) => (
                 <li key={breed} className="flex items-center gap-2">
                   <span className="text-red-500 font-bold">✕</span>
                   {breed}
@@ -248,7 +261,7 @@ export default function PetsGuidePage() {
               ))}
             </ul>
             <p className="text-sm text-slate-600">
-              If you own one of the breeds above, contact a specialist relocation company before making any plans — the rules are complex and vary by Emirates. Abu Dhabi has different restrictions to Dubai.
+              A crossbreed counts. If your dog is a mixed breed that could be read as one of the above, get written confirmation from your relocation agent before you book anything — the determination is made at the border, not in advance. Separately from the import ban, some emirates apply muzzle and leash requirements to other large breeds in public places; those are local rules that vary between Dubai and Abu Dhabi, and your agent or vet can confirm what applies where you are moving.
             </p>
           </section>
 
@@ -270,10 +283,10 @@ export default function PetsGuidePage() {
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-[#0A1628]">Once You Arrive in Dubai</h2>
             <p className="text-slate-600 leading-relaxed">
-              On arrival at Dubai International Airport, your pet will be inspected by Dubai Municipality veterinary officers. Have your original documents ready: the MOCCAE import permit, health certificate, vaccination record and microchip documentation. Inspections are usually straightforward if paperwork is in order.
+              On arrival at Dubai International Airport, your pet will be inspected by Dubai Municipality veterinary officers. Have your original documents ready — originals, not copies: the MOCCAE import permit, health certificate, vaccination record and microchip documentation. Inspections are usually straightforward if paperwork is in order.
             </p>
             <p className="text-slate-600 leading-relaxed">
-              Register your pet with Dubai Municipality within 30 days of arrival. This costs approximately AED 200 (£43) and requires annual renewal. Dogs must be licensed and microchipped — fines apply for unlicensed dogs found in public areas.
+              Once you are settled, register your pet with Dubai Municipality. Dubai requires cats and dogs to be microchipped, vaccinated and licensed, and the licence is renewed annually. Fines apply for unlicensed dogs found in public areas. Registration fees are set by Dubai Municipality and are reviewed periodically, so check the current figure at dm.gov.ae or through a licensed vet clinic rather than budgeting from a third-party guide — the amounts quoted around the internet vary widely and most are out of date.
             </p>
             <p className="text-slate-600 leading-relaxed">
               Dubai has good veterinary care. Recommended practices include Dubai Kennels and Cattery (DKC), Veterinary Hospital at Dubai Hills, and the British Veterinary Clinic in Jumeirah. Pet-friendly apartments are available but confirm with your landlord before signing — some buildings prohibit animals.
@@ -335,7 +348,7 @@ export default function PetsGuidePage() {
                 Pet Relocation Specialists We Recommend
               </h2>
               <p className="mt-2 text-slate-300 text-sm leading-relaxed">
-                Getting the paperwork right is critical — one error can delay or prevent your pet entering the UAE. These specialist companies manage the entire process for you, from titre test coordination to airport collection in Dubai.
+                Getting the paperwork right is critical — one error can delay or prevent your pet entering the UAE. These specialist companies manage the entire process for you, from the vaccination schedule and APHA endorsement to airport collection in Dubai.
               </p>
               <p className="mt-3 text-xs text-slate-400">
                 Disclosure: these are plain editorial links. We have no commercial relationship with any of the companies below and earn nothing if you use them — they are listed because we consider them genuinely reputable.

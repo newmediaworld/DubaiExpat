@@ -298,7 +298,7 @@ export default function Home() {
                   </span>
                   <h3 className="text-base font-semibold text-white">Bringing Your Pet</h3>
                   <p className="mt-1 text-sm text-white/75">
-                    UAE import rules, rabies titre test, breed restrictions and specialist services.
+                    UAE import rules, the required vaccinations, breed restrictions and specialist services.
                   </p>
                   <p className="mt-3 text-xs font-medium text-[#C9A84C]">Read the guide →</p>
                 </div>
