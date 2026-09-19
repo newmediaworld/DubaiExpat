@@ -44,3 +44,9 @@ next-env.d.ts
 # served at /build-info.json, read by infrastructure/scripts/check_deploys.py.
 # Generated, never committed: a committed copy would go stale and lie.
 public/build-info.json
+
+# FUSE mount artefacts — deleted-but-open files the sandbox leaves behind.
+# Three of these were committed on 17 Sep 2026 as stale duplicates of live
+# articles. They do not match the *.mdx globs so the site ignored them, but they
+# corrupt every grep-based content and affiliate-link audit.
+.fuse_hidden*

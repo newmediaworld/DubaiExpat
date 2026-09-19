@@ -15,17 +15,19 @@ const BREADCRUMBS = [
   { name: "Internet & VPN", url: SCHEMA_URL },
 ];
 
-// NordVPN affiliate tracking URLs — aff_id 145336, source=dx (dubaiexpat), one slug per placement for attribution
-const NORD_HERO =
-  "https://go.nordvpn.net/aff_c?offer_id=15&aff_id=145336&source=dx&aff_sub=guide-internet-and-vpn-hero";
+// NordVPN affiliate tracking URLs — aff_id 145336, source=dx, one slug per placement.
+//
+// Cut from six placements to three on 19 Sep 2026. Six identical CTAs on one page is
+// saturation, not monetisation: 13 NordVPN hrefs rendered here and the account recorded
+// ZERO clicks in five months, while Incogni — one link on this page — recorded 12 in
+// thirty days. Removed the hero (asked before the page earned it), the features button
+// (competed with an Incogni CTA in the same breath) and the setup link (reader has already
+// decided by then). What remains: the short-answer recommendation, the reasoned
+// two-year-plan pick, and the closing CTA.
 const NORD_INTRO =
   "https://go.nordvpn.net/aff_c?offer_id=15&aff_id=145336&source=dx&aff_sub=guide-internet-and-vpn-intro";
 const NORD_WHY =
   "https://go.nordvpn.net/aff_c?offer_id=15&aff_id=145336&source=dx&aff_sub=guide-internet-and-vpn-why-nord";
-const NORD_FEATURES =
-  "https://go.nordvpn.net/aff_c?offer_id=15&aff_id=145336&source=dx&aff_sub=guide-internet-and-vpn-features";
-const NORD_SETUP =
-  "https://go.nordvpn.net/aff_c?offer_id=15&aff_id=145336&source=dx&aff_sub=guide-internet-and-vpn-setup";
 const NORD_CTA =
   "https://go.nordvpn.net/aff_c?offer_id=15&aff_id=145336&source=dx&aff_sub=guide-internet-and-vpn-cta";
 
@@ -77,15 +79,11 @@ export default function InternetAndVpnGuide() {
             <p className="mt-4 max-w-2xl text-slate-200 leading-relaxed text-base sm:text-lg">
               Are VPNs legal in Dubai? What&rsquo;s actually blocked? When do you really need one? A clear-eyed look at the rules, the enforcement reality, and the VPN we actually use ourselves.
             </p>
-            <a
-              href={NORD_HERO}
-              target="_blank"
-              rel="noopener noreferrer sponsored"
-              className="mt-6 inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-opacity hover:opacity-90"
-              style={{ backgroundColor: "#C9A84C", color: "#0A1628" }}
-            >
-              <span>See the NordVPN deal we recommend &rarr;</span>
-            </a>
+            {/* Hero CTA removed 19 Sep 2026. It asked for the click before the page had
+                earned anything — the reader had read one sentence. The recommendation now
+                appears three paragraphs down, where it answers a question the reader has
+                actually formed. See SHARED/commercial-layer.md: "does the page earn the
+                click before asking for it?" */}
           </div>
         </section>
 
@@ -308,15 +306,11 @@ export default function InternetAndVpnGuide() {
                 A VPN protects your traffic in flight. It doesn&rsquo;t do anything about the data brokers who already have your name, address, phone number and email — and resell that data to anyone willing to pay. For UK expats this matters more than you&rsquo;d think: scam calls and phishing emails targeting Dubai-based UK nationals are a known industry, and the source data overwhelmingly comes from broker leaks. <a href={INCOGNI_PRIVACY} target="_blank" rel="noopener noreferrer sponsored" className="font-semibold underline hover:text-[#C9A84C]" style={{ color: "#0A1628" }}>Incogni</a> automates the GDPR/CCPA opt-out requests across hundreds of brokers on your behalf — independently audited by Deloitte, around &pound;5/month annual, and they handle the multi-jurisdiction admin (UK ICO and EU DPAs) which is the part that&rsquo;s genuinely tedious to do manually. We see it as the natural complement to a VPN: traffic protection plus background-data cleanup. Not strictly UAE-specific, but worth setting up before the inevitable wave of post-relocation scam calls starts.
               </p>
               <div className="mt-6">
-                <a
-                  href={NORD_FEATURES}
-                  target="_blank"
-                  rel="noopener noreferrer sponsored"
-                  className="inline-flex items-center gap-3 rounded-xl px-6 py-4 font-semibold transition-opacity hover:opacity-90"
-                  style={{ backgroundColor: "#C9A84C", color: "#0A1628" }}
-                >
-                  <span>See the current NordVPN two-year deal &rarr;</span>
-                </a>
+                {/* NordVPN button removed 19 Sep 2026. It sat immediately after a paragraph
+                    recommending Incogni, giving the reader two different paid products to
+                    choose between in the same breath. Competing CTAs split the decision and
+                    convert worse than one. The Incogni link above stays; the NordVPN
+                    recommendation lives higher up the page and again at the close. */}
                 <p className="mt-3 text-xs" style={{ color: "#64748b" }}>
                   Affiliate link. We earn a small commission at no extra cost to you &mdash; it&rsquo;s what keeps the guides on this site independent and free to read.
                 </p>
@@ -338,7 +332,7 @@ export default function InternetAndVpnGuide() {
               <div>
                 <h3 className="text-xl font-semibold mb-2" style={{ color: "#0A1628" }}>1. Sign up before you fly</h3>
                 <p>
-                  Subscribe to <a href={NORD_SETUP} target="_blank" rel="noopener noreferrer sponsored" className="font-semibold underline hover:text-[#C9A84C]" style={{ color: "#0A1628" }}>NordVPN on the two-year plan</a> while you&rsquo;re still on a UK connection. Confirm your email, set a strong password, and bookmark the account portal. You get a 30-day money-back window from the day you sign up, so there&rsquo;s no rush.
+                  Subscribe to NordVPN on the two-year plan while you&rsquo;re still on a UK connection. Confirm your email, set a strong password, and bookmark the account portal. You get a 30-day money-back window from the day you sign up, so there&rsquo;s no rush.
                 </p>
               </div>
               <div>
