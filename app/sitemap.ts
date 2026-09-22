@@ -133,7 +133,11 @@ function walkArticles(): Array<{ path: string; lastmod: Date }> {
       let lastmod: Date;
       try {
         const content = readFileSync(fullPath, "utf-8");
-        const m = content.match(/^date:\s*["']?(\d{4}-\d{2}-\d{2})["']?/m);
+        // Prefer `updated:` over `date:`. A materially revised article should
+        // move in the sitemap; before 22 Sep 2026 only `date:` was read, so
+        // lastmod stayed frozen at first publish however often we revised.
+        const u = content.match(/^updated:\s*["']?(\d{4}-\d{2}-\d{2})["']?/m);
+        const m = u ?? content.match(/^date:\s*["']?(\d{4}-\d{2}-\d{2})["']?/m);
         if (m) {
           lastmod = new Date(`${m[1]}T00:00:00Z`);
         } else {

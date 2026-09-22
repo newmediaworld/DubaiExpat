@@ -44,6 +44,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const heroImage: string | undefined = data.hero_image;
     const ogImage = heroImage && /^https?:\/\//.test(heroImage) ? heroImage : "/og-default.png";
     const datePublished: string | undefined = data.date;
+    // `updated:` is set by hand when an article is materially revised. Before
+    // 22 Sep 2026 nothing read it, so a revised article looked untouched to
+    // crawlers: no modifiedTime, and sitemap lastmod frozen at first publish.
+    const dateModified: string | undefined = data.updated;
     return {
       title,
       description,
@@ -55,6 +59,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         url,
         images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
         publishedTime: datePublished,
+        modifiedTime: dateModified,
       },
       twitter: {
         card: "summary_large_image",
